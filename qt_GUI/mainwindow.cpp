@@ -38,6 +38,12 @@ void MainWindow::timer_callback(int timer_count){
             ui->connect1->setText("disconnect");}
         IP1_temp1=IP1_temp;
     }
+    if(IP2_EN==1){
+        if(IP2_temp==IP2_temp1){
+            ui->connect2->setStyleSheet("color:rgb(255,0,0);");
+            ui->connect2->setText("disconnect");}
+        IP2_temp1=IP2_temp;
+    }
 }
 
 void MainWindow::readPendingDatagrams_IP0()
