@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1526</width>
+    <height>831</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="startbuttom">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP0_0">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP0_1">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP0_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP0_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP1_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP1_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP1_0">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP1_1">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP2_1">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP2_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP2_0">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP2_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP3_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP3_1">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP3_0">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP3_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP4_2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP4_0">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP4_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP4_1">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP6_0">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP6_2">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP8_1">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP5_3">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP8_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP6_3">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP6_1">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP9_1">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP7_0">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP8_0">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP5_0">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP9_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP5_1">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP7_1">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP9_3">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP7_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP8_3">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP7_3">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP9_0">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP5_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP0_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP4_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP1_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP2_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP3_4">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP9_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>750</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP6_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>630</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP5_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>590</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP8_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>710</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="IP7_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>670</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP0">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>590</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string notr="true">IP0</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>630</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP1</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>670</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP2</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>710</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP3</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>750</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP4</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP8">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>710</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP8</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP9">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>750</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP9</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP7">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>670</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP7</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP6">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>630</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP6</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="IP5">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>590</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect0">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>590</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect1">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>630</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>670</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect3">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>710</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect4">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>750</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect7">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>670</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect8">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>710</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect9">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>750</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect5">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>590</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connect6">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>630</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>not connect</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1526</width>
+     <height>28</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
