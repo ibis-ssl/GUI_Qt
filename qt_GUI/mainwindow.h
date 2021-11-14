@@ -58,6 +58,7 @@ private:
     QUdpSocket *recUdpSocket6;
     QUdpSocket *recUdpSocket7;
     QUdpSocket *recUdpSocket8;
+    QUdpSocket *recUdpSocket9;
     void readPendingDatagrams_IP0();
     void readMsg_IP0(QNetworkDatagram datagram);
     void readPendingDatagrams_IP1();
@@ -76,8 +77,10 @@ private:
     void readMsg_IP7(QNetworkDatagram datagram);
     void readPendingDatagrams_IP8();
     void readMsg_IP8(QNetworkDatagram datagram);
-    u_int8_t IP0_EN,IP1_EN,IP2_EN,IP3_EN,IP4_EN,IP5_EN,IP6_EN,IP7_EN,IP8_EN;
-    u_int8_t IP0_temp,IP1_temp,IP2_temp,IP3_temp,IP4_temp,IP5_temp,IP6_temp,IP7_temp,IP8_temp;
-    u_int8_t IP0_temp1,IP1_temp1,IP2_temp1,IP3_temp1,IP4_temp1,IP5_temp1,IP6_temp1,IP7_temp1,IP8_temp1;
+    void readPendingDatagrams_IP9();
+    void readMsg_IP9(QNetworkDatagram datagram);
+    uint8_t IP0_EN,IP1_EN,IP2_EN,IP3_EN,IP4_EN,IP5_EN,IP6_EN,IP7_EN,IP8_EN,IP9_EN;
+    uint8_t IP0_temp,IP1_temp,IP2_temp,IP3_temp,IP4_temp,IP5_temp,IP6_temp,IP7_temp,IP8_temp,IP9_temp;
+    uint8_t IP0_temp1,IP1_temp1,IP2_temp1,IP3_temp1,IP4_temp1,IP5_temp1,IP6_temp1,IP7_temp1,IP8_temp1,IP9_temp1;
 };
 #endif // MAINWINDOW_H
