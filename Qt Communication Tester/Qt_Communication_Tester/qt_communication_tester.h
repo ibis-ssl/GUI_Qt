@@ -46,11 +46,9 @@ private slots:
 
     void on_dribble_EN_stateChanged(int arg1);
 
-    void on_kick_power_sliderMoved(int position);
-
-    void on_drible_power_valueChanged(int value);
-
     void on_kick_power_valueChanged(int value);
+
+    void on_dribble_power_valueChanged(int value);
 
 private:
     Ui::Qt_Communication_Tester *ui;
