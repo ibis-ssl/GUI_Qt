@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
@@ -39,10 +40,15 @@ public:
     QLabel *label_4;
     QTextBrowser *data_from_robot;
     QLabel *label_5;
-    QTextBrowser *textBrowser;
+    QTextBrowser *log;
     QLabel *label_6;
     QSpinBox *setIP;
-    QPushButton *IPset;
+    QSlider *kick_power;
+    QLabel *label_7;
+    QSlider *drible_power;
+    QLabel *label_8;
+    QCheckBox *kick_EN;
+    QCheckBox *dribble_EN;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -89,9 +95,9 @@ public:
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(20, 330, 111, 21));
-        textBrowser = new QTextBrowser(centralwidget);
-        textBrowser->setObjectName("textBrowser");
-        textBrowser->setGeometry(QRect(450, 30, 301, 141));
+        log = new QTextBrowser(centralwidget);
+        log->setObjectName("log");
+        log->setGeometry(QRect(450, 30, 301, 141));
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(460, 10, 41, 21));
@@ -100,9 +106,28 @@ public:
         setIP->setGeometry(QRect(220, 10, 42, 31));
         setIP->setMinimum(100);
         setIP->setMaximum(120);
-        IPset = new QPushButton(centralwidget);
-        IPset->setObjectName("IPset");
-        IPset->setGeometry(QRect(270, 10, 41, 31));
+        kick_power = new QSlider(centralwidget);
+        kick_power->setObjectName("kick_power");
+        kick_power->setGeometry(QRect(100, 110, 111, 22));
+        kick_power->setMaximum(100);
+        kick_power->setOrientation(Qt::Horizontal);
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(20, 110, 81, 21));
+        drible_power = new QSlider(centralwidget);
+        drible_power->setObjectName("drible_power");
+        drible_power->setGeometry(QRect(310, 110, 101, 22));
+        drible_power->setMaximum(100);
+        drible_power->setOrientation(Qt::Horizontal);
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName("label_8");
+        label_8->setGeometry(QRect(230, 110, 71, 21));
+        kick_EN = new QCheckBox(centralwidget);
+        kick_EN->setObjectName("kick_EN");
+        kick_EN->setGeometry(QRect(270, 80, 75, 20));
+        dribble_EN = new QCheckBox(centralwidget);
+        dribble_EN->setObjectName("dribble_EN");
+        dribble_EN->setGeometry(QRect(340, 80, 75, 20));
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
@@ -130,7 +155,10 @@ public:
         label_4->setText(QCoreApplication::translate("Qt_Communication_Tester", "Set Data", nullptr));
         label_5->setText(QCoreApplication::translate("Qt_Communication_Tester", "Data from robot", nullptr));
         label_6->setText(QCoreApplication::translate("Qt_Communication_Tester", "Log", nullptr));
-        IPset->setText(QCoreApplication::translate("Qt_Communication_Tester", "Set", nullptr));
+        label_7->setText(QCoreApplication::translate("Qt_Communication_Tester", "Dribble power", nullptr));
+        label_8->setText(QCoreApplication::translate("Qt_Communication_Tester", "kick power", nullptr));
+        kick_EN->setText(QCoreApplication::translate("Qt_Communication_Tester", "Kick EN", nullptr));
+        dribble_EN->setText(QCoreApplication::translate("Qt_Communication_Tester", "Dribble EN", nullptr));
     } // retranslateUi
 
 };

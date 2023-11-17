@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,10 +11,12 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    qt_communication_tester.cpp
+    qt_communication_tester.cpp \
+    thread_time.cpp
 
 HEADERS += \
-    qt_communication_tester.h
+    qt_communication_tester.h \
+    thread_time.h
 
 FORMS += \
     qt_communication_tester.ui
