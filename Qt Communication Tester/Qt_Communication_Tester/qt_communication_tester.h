@@ -14,6 +14,7 @@
 #include "math.h"
 #include <QFile>
 #include <QTextStream>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Qt_Communication_Tester; }
@@ -34,21 +35,28 @@ public slots:
 private slots:
     void on_startbotton_clicked();
 
-    void on_localEN_stateChanged(int arg1);
-
-    void on_keeperEN_stateChanged(int arg1);
-
-    void on_chipEN_stateChanged(int arg1);
-
     void on_setIP_textChanged(const QString &arg1);
-
-    void on_kick_EN_stateChanged(int arg1);
-
-    void on_dribble_EN_stateChanged(int arg1);
 
     void on_kick_power_valueChanged(int value);
 
     void on_dribble_power_valueChanged(int value);
+
+    void on_keeperEN_stateChanged(int arg1);
+
+    void on_localEN_stateChanged(int arg1);
+
+    void on_target_theta_valueChanged(int value);
+
+    void on_vx_valueChanged(int value);
+
+    void on_vy_valueChanged(int value);
+
+protected:
+    bool eventFilter(QObject *object, QEvent *event);
+
+private:
+    bool eventKeyPress(QKeyEvent *event);
+    bool eventKeyRelease(QKeyEvent *event);
 
 private:
     Ui::Qt_Communication_Tester *ui;

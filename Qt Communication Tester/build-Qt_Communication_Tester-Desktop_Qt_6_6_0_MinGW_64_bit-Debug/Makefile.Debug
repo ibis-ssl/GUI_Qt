@@ -306,6 +306,7 @@ debug/moc_qt_communication_tester.cpp: ../Qt_Communication_Tester/qt_communicati
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
+		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
 	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/okada/Documents/Github/GUI_Qt/Qt Communication Tester/build-Qt_Communication_Tester-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -I"C:/Users/okada/Documents/Github/GUI_Qt/Qt Communication Tester/Qt_Communication_Tester" -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtWidgets -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Qt_Communication_Tester\qt_communication_tester.h -o debug\moc_qt_communication_tester.cpp
@@ -633,6 +634,7 @@ debug/main.o: ../Qt_Communication_Tester/main.cpp ../Qt_Communication_Tester/qt_
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
+		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -846,6 +848,7 @@ debug/qt_communication_tester.o: ../Qt_Communication_Tester/qt_communication_tes
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
+		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
 		ui_qt_communication_tester.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QApplication \
@@ -870,6 +873,9 @@ debug/qt_communication_tester.o: ../Qt_Communication_Tester/qt_communication_tes
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QCheckBox \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qcheckbox.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QDial \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qdial.h \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qabstractslider.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qframe.h \
@@ -882,7 +888,6 @@ debug/qt_communication_tester.o: ../Qt_Communication_Tester/qt_communication_tes
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QSlider \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qabstractslider.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QSpinBox \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qspinbox.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qabstractspinbox.h \

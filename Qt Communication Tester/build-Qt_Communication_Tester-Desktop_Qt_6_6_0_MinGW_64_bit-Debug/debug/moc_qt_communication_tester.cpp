@@ -43,16 +43,16 @@ static constexpr auto qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS = 
     "",
     "time_counter",
     "on_startbotton_clicked",
-    "on_localEN_stateChanged",
-    "arg1",
-    "on_keeperEN_stateChanged",
-    "on_chipEN_stateChanged",
     "on_setIP_textChanged",
-    "on_kick_EN_stateChanged",
-    "on_dribble_EN_stateChanged",
+    "arg1",
     "on_kick_power_valueChanged",
     "value",
-    "on_dribble_power_valueChanged"
+    "on_dribble_power_valueChanged",
+    "on_keeperEN_stateChanged",
+    "on_localEN_stateChanged",
+    "on_target_theta_valueChanged",
+    "on_vx_valueChanged",
+    "on_vy_valueChanged"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t {
@@ -62,16 +62,16 @@ struct qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t {
     char stringdata2[1];
     char stringdata3[13];
     char stringdata4[23];
-    char stringdata5[24];
+    char stringdata5[21];
     char stringdata6[5];
-    char stringdata7[25];
-    char stringdata8[23];
-    char stringdata9[21];
-    char stringdata10[24];
-    char stringdata11[27];
-    char stringdata12[27];
-    char stringdata13[6];
-    char stringdata14[30];
+    char stringdata7[27];
+    char stringdata8[6];
+    char stringdata9[30];
+    char stringdata10[25];
+    char stringdata11[24];
+    char stringdata12[29];
+    char stringdata13[19];
+    char stringdata14[19];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -82,32 +82,32 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS
         QT_MOC_LITERAL(39, 0),  // ""
         QT_MOC_LITERAL(40, 12),  // "time_counter"
         QT_MOC_LITERAL(53, 22),  // "on_startbotton_clicked"
-        QT_MOC_LITERAL(76, 23),  // "on_localEN_stateChanged"
-        QT_MOC_LITERAL(100, 4),  // "arg1"
-        QT_MOC_LITERAL(105, 24),  // "on_keeperEN_stateChanged"
-        QT_MOC_LITERAL(130, 22),  // "on_chipEN_stateChanged"
-        QT_MOC_LITERAL(153, 20),  // "on_setIP_textChanged"
-        QT_MOC_LITERAL(174, 23),  // "on_kick_EN_stateChanged"
-        QT_MOC_LITERAL(198, 26),  // "on_dribble_EN_stateChanged"
-        QT_MOC_LITERAL(225, 26),  // "on_kick_power_valueChanged"
-        QT_MOC_LITERAL(252, 5),  // "value"
-        QT_MOC_LITERAL(258, 29)   // "on_dribble_power_valueChanged"
+        QT_MOC_LITERAL(76, 20),  // "on_setIP_textChanged"
+        QT_MOC_LITERAL(97, 4),  // "arg1"
+        QT_MOC_LITERAL(102, 26),  // "on_kick_power_valueChanged"
+        QT_MOC_LITERAL(129, 5),  // "value"
+        QT_MOC_LITERAL(135, 29),  // "on_dribble_power_valueChanged"
+        QT_MOC_LITERAL(165, 24),  // "on_keeperEN_stateChanged"
+        QT_MOC_LITERAL(190, 23),  // "on_localEN_stateChanged"
+        QT_MOC_LITERAL(214, 28),  // "on_target_theta_valueChanged"
+        QT_MOC_LITERAL(243, 18),  // "on_vx_valueChanged"
+        QT_MOC_LITERAL(262, 18)   // "on_vy_valueChanged"
     },
     "Qt_Communication_Tester",
     "timer_callback",
     "",
     "time_counter",
     "on_startbotton_clicked",
-    "on_localEN_stateChanged",
-    "arg1",
-    "on_keeperEN_stateChanged",
-    "on_chipEN_stateChanged",
     "on_setIP_textChanged",
-    "on_kick_EN_stateChanged",
-    "on_dribble_EN_stateChanged",
+    "arg1",
     "on_kick_power_valueChanged",
     "value",
-    "on_dribble_power_valueChanged"
+    "on_dribble_power_valueChanged",
+    "on_keeperEN_stateChanged",
+    "on_localEN_stateChanged",
+    "on_target_theta_valueChanged",
+    "on_vx_valueChanged",
+    "on_vy_valueChanged"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -131,24 +131,24 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSQt_Communication_TesterENDCLASS[
        4,    0,   77,    2, 0x08,    3 /* Private */,
        5,    1,   78,    2, 0x08,    4 /* Private */,
        7,    1,   81,    2, 0x08,    6 /* Private */,
-       8,    1,   84,    2, 0x08,    8 /* Private */,
-       9,    1,   87,    2, 0x08,   10 /* Private */,
-      10,    1,   90,    2, 0x08,   12 /* Private */,
-      11,    1,   93,    2, 0x08,   14 /* Private */,
-      12,    1,   96,    2, 0x08,   16 /* Private */,
+       9,    1,   84,    2, 0x08,    8 /* Private */,
+      10,    1,   87,    2, 0x08,   10 /* Private */,
+      11,    1,   90,    2, 0x08,   12 /* Private */,
+      12,    1,   93,    2, 0x08,   14 /* Private */,
+      13,    1,   96,    2, 0x08,   16 /* Private */,
       14,    1,   99,    2, 0x08,   18 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    6,
-    QMetaType::Void, QMetaType::Int,    6,
-    QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::Int,    6,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Int,    8,
 
        0        // eod
 };
@@ -167,28 +167,28 @@ Q_CONSTINIT const QMetaObject Qt_Communication_Tester::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_startbotton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_localEN_stateChanged'
+        // method 'on_setIP_textChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'on_kick_power_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_dribble_power_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_keeperEN_stateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_chipEN_stateChanged'
+        // method 'on_localEN_stateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_setIP_textChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'on_kick_EN_stateChanged'
+        // method 'on_target_theta_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_dribble_EN_stateChanged'
+        // method 'on_vx_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_kick_power_valueChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_dribble_power_valueChanged'
+        // method 'on_vy_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
@@ -203,14 +203,14 @@ void Qt_Communication_Tester::qt_static_metacall(QObject *_o, QMetaObject::Call 
         switch (_id) {
         case 0: _t->timer_callback((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->on_startbotton_clicked(); break;
-        case 2: _t->on_localEN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 3: _t->on_keeperEN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->on_chipEN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 5: _t->on_setIP_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 6: _t->on_kick_EN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->on_dribble_EN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 8: _t->on_kick_power_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 9: _t->on_dribble_power_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 2: _t->on_setIP_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 3: _t->on_kick_power_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_dribble_power_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->on_keeperEN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->on_localEN_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->on_target_theta_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->on_vx_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->on_vy_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
