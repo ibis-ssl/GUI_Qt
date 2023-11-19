@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>758</width>
-    <height>587</height>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,8 +44,8 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>120</y>
-      <width>75</width>
+      <y>130</y>
+      <width>61</width>
       <height>20</height>
      </rect>
     </property>
@@ -56,8 +56,8 @@
    <widget class="QCheckBox" name="keeperEN">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>50</y>
+      <x>110</x>
+      <y>60</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -72,8 +72,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>50</y>
+      <x>200</x>
+      <y>60</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -85,8 +85,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>50</y>
+      <x>10</x>
+      <y>60</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -99,7 +99,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>280</y>
+      <y>290</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>250</y>
+      <y>260</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>370</y>
+      <y>380</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -132,7 +132,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>340</y>
+      <y>350</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -145,7 +145,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>450</y>
+      <y>460</y>
       <width>311</width>
       <height>61</height>
      </rect>
@@ -155,7 +155,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>420</y>
+      <y>430</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -184,7 +184,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>120</y>
+      <y>130</y>
       <width>111</width>
       <height>22</height>
      </rect>
@@ -199,8 +199,8 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>90</y>
+      <x>10</x>
+      <y>100</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -213,7 +213,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>90</y>
+      <y>100</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -228,8 +228,8 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>120</y>
+      <x>10</x>
+      <y>130</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -242,7 +242,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>120</y>
+      <y>130</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -255,7 +255,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>90</y>
+      <y>100</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -268,7 +268,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>80</y>
+      <y>90</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -278,7 +278,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>120</y>
+      <y>130</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -288,7 +288,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>90</y>
+      <y>100</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -301,7 +301,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>120</y>
+      <y>130</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -314,7 +314,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>160</y>
+      <y>170</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -327,7 +327,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>190</y>
+      <y>200</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -336,10 +336,10 @@
    <widget class="QDial" name="target_theta">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>30</y>
-      <width>151</width>
-      <height>151</height>
+      <x>430</x>
+      <y>50</y>
+      <width>141</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="maximum">
@@ -355,7 +355,7 @@
      <bool>true</bool>
     </property>
     <property name="notchesVisible">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -397,28 +397,31 @@
    <widget class="QSlider" name="vx">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>590</x>
       <y>90</y>
       <width>151</width>
-      <height>22</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="value">
-     <number>50</number>
+     <number>30</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBelow</enum>
     </property>
    </widget>
    <widget class="QTextBrowser" name="show_vy">
     <property name="geometry">
      <rect>
-      <x>631</x>
+      <x>651</x>
       <y>120</y>
-      <width>71</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
@@ -426,7 +429,7 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>711</x>
+      <x>721</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -439,7 +442,7 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>581</x>
+      <x>591</x>
       <y>120</y>
       <width>51</width>
       <height>31</height>
@@ -452,7 +455,7 @@
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>711</x>
+      <x>721</x>
       <y>50</y>
       <width>31</width>
       <height>31</height>
@@ -465,7 +468,7 @@
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>581</x>
+      <x>591</x>
       <y>50</y>
       <width>51</width>
       <height>31</height>
@@ -478,9 +481,9 @@
    <widget class="QTextBrowser" name="show_vx">
     <property name="geometry">
      <rect>
-      <x>631</x>
+      <x>651</x>
       <y>50</y>
-      <width>71</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
@@ -488,27 +491,30 @@
    <widget class="QSlider" name="vy">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>590</x>
       <y>160</y>
       <width>151</width>
-      <height>22</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="maximum">
      <number>200</number>
     </property>
     <property name="value">
-     <number>50</number>
+     <number>30</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBelow</enum>
     </property>
    </widget>
    <widget class="QTextBrowser" name="show_robot_theta">
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>480</y>
+      <y>490</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -518,7 +524,7 @@
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>480</y>
+      <y>490</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -531,7 +537,7 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>480</y>
+      <y>490</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -544,7 +550,7 @@
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>440</y>
+      <y>450</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -557,7 +563,7 @@
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>440</y>
+      <y>450</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -570,7 +576,7 @@
     <property name="geometry">
      <rect>
       <x>570</x>
-      <y>440</y>
+      <y>450</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -580,7 +586,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>440</y>
+      <y>450</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -593,7 +599,7 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>440</y>
+      <y>450</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -603,7 +609,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>480</y>
+      <y>490</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -616,7 +622,7 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>480</y>
+      <y>490</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -625,7 +631,7 @@
    <widget class="QPushButton" name="reset_theta">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>560</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>

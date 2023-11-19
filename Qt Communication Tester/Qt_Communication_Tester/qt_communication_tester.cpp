@@ -22,8 +22,8 @@ Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     ui->show_dribble_power->setText(str);
     ui->show_kick_power->setText(str);
     ui->show_target_theta->setText("0");
-    ui->show_vx->setText("0.500");
-    ui->show_vy->setText("0.500");
+    ui->show_vx->setText("0.300");
+    ui->show_vy->setText("0.300");
 
 }
 
