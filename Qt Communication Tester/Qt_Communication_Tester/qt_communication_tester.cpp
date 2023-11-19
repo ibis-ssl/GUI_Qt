@@ -165,10 +165,10 @@ bool Qt_Communication_Tester::eventKeyPress(QKeyEvent *event)
             ai_cmd.local_target_speed[0]=(float)(ui->vx->value())*(-1.0)/100.0;
             break;
         case Qt::Key_A:
-            ai_cmd.local_target_speed[1]=(float)(ui->vx->value())*(-1.0)/100.0;
+            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())*(-1.0)/100.0;
             break;
         case Qt::Key_D:
-            ai_cmd.local_target_speed[1]=(float)(ui->vx->value())/100.0;
+            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())/100.0;
             break;
         default:  return false;
     }
