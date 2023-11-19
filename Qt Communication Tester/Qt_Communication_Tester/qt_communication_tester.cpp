@@ -158,6 +158,11 @@ bool Qt_Communication_Tester::eventKeyPress(QKeyEvent *event)
         case Qt::Key_D:
             ai_cmd.local_target_speed[1]=(float)(ui->vy->value())/100.0;
             break;
+        case Qt::Key_Escape:
+            if(is_start==1){
+            on_startbotton_clicked();
+            }
+            break;
         default:  return false;
     }
     return true;
