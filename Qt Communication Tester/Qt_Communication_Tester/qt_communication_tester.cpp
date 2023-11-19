@@ -47,18 +47,6 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
         return std::make_pair(byte_low, byte_high);
     };
 
-    auto normalize_angle = [](float angle_rad) -> float {
-        if (fabs(angle_rad) > M_PI) {
-            while (angle_rad > M_PI) {
-                angle_rad -= 2.0f * M_PI;
-            }
-            while (angle_rad < -M_PI) {
-                angle_rad += 2.0f * M_PI;
-            }
-        }
-        return angle_rad;
-    };
-
 
     //kick value
     if(ui->chipEN->isChecked()>0){
@@ -200,9 +188,39 @@ bool Qt_Communication_Tester::eventKeyRelease(QKeyEvent *event)
     return true;
 }
 
-void Qt_Communication_Tester::readPendingDatagrams(){}
+void Qt_Communication_Tester::readPendingDatagrams(){
+    while (recUdpSocket->hasPendingDatagrams()) {
+            QNetworkDatagram datagram = recUdpSocket->receiveDatagram();
+            readMsg(datagram);
+    }
+}
 
-void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){}
+void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
+
+    QByteArray data = datagram.data();
+    int len = data.size();
+
+    char str[400];
+    sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d",
+            len,data.data()[0],data.data()[1],data.data()[2],data.data()[3],data.data()[4],data.data()[5],data.data()[6],data.data()[7],data.data()[8],data.data()[9],data.data()[10]);
+    ui->data_from_robot->setText(str);
+
+    char str2[10];
+    sprintf(str2,"=%d",((data.data()[2] << 8 | data.data()[1]) + 360));
+    ui->show_robot_theta->setText(str2);
+    char str3[10];
+    sprintf(str3,"=%d",data.data()[7]);
+    ui->show_robot_voltage->setText(str3);
+
+    char str4[10];
+    sprintf(str4,"=%d",data.data()[0]);
+    ui->show_connection->setText(str4);
+
+    char str5[10];
+    sprintf(str5,"=%d",data.data()[6]);
+    ui->show_kickstate->setText(str5);
+
+}
 
 void Qt_Communication_Tester::on_startbotton_clicked()
 {
@@ -213,6 +231,9 @@ void Qt_Communication_Tester::on_startbotton_clicked()
         thread_time.start();
         recUdpSocket = new QUdpSocket(this);
         recUdpSocket->bind(QHostAddress::Any ,50000+orionIP);
+
+        QString address = "224.5.20.100." +  QString::number(orionIP);
+        recUdpSocket->joinMulticastGroup(QHostAddress(address));
         connect(recUdpSocket, &QUdpSocket::readyRead, this, &Qt_Communication_Tester::readPendingDatagrams);
     }
     else{
@@ -222,6 +243,7 @@ void Qt_Communication_Tester::on_startbotton_clicked()
 
         thread_time.quit();
         recUdpSocket->close();
+
     }
 }
 
@@ -318,3 +340,13 @@ bool Qt_Communication_Tester::eventFilter(QObject *, QEvent *event)
     }
     return bRtn;
 }
+
+float two_to_float(uint8_t data[2]) { return (float)((data[0] << 8 | data[1]) - 32767.0) / 32767.0; }
+
+void Qt_Communication_Tester::on_reset_theta_clicked()
+{
+    ai_cmd.target_theta=0;
+    ui->target_theta->setValue(180);
+
+}
+

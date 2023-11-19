@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>140</y>
+      <y>120</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QCheckBox" name="keeperEN">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>80</y>
+      <x>120</x>
+      <y>50</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -72,8 +72,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>80</y>
+      <x>210</x>
+      <y>50</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -99,7 +99,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>300</y>
+      <y>280</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>270</y>
+      <y>250</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>390</y>
+      <y>370</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -132,7 +132,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>360</y>
+      <y>340</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -145,7 +145,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>470</y>
+      <y>450</y>
       <width>311</width>
       <height>61</height>
      </rect>
@@ -155,7 +155,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>440</y>
+      <y>420</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -184,7 +184,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>140</y>
+      <y>120</y>
       <width>111</width>
       <height>22</height>
      </rect>
@@ -200,7 +200,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
+      <y>90</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -213,7 +213,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>110</y>
+      <y>90</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -229,7 +229,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>120</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -242,7 +242,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>140</y>
+      <y>120</y>
       <width>61</width>
       <height>20</height>
      </rect>
@@ -255,7 +255,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>110</y>
+      <y>90</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -268,7 +268,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>100</y>
+      <y>80</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -278,7 +278,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>140</y>
+      <y>120</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -288,7 +288,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>110</y>
+      <y>90</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -301,7 +301,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>140</y>
+      <y>120</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -314,7 +314,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>180</y>
+      <y>160</y>
       <width>111</width>
       <height>21</height>
      </rect>
@@ -327,7 +327,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>210</y>
+      <y>190</y>
       <width>721</width>
       <height>51</height>
      </rect>
@@ -336,10 +336,10 @@
    <widget class="QDial" name="target_theta">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>40</y>
-      <width>131</width>
-      <height>131</height>
+      <x>420</x>
+      <y>30</y>
+      <width>151</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="maximum">
@@ -361,7 +361,7 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>430</x>
       <y>10</y>
       <width>51</width>
       <height>31</height>
@@ -374,7 +374,7 @@
    <widget class="QTextBrowser" name="show_target_theta">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>480</x>
       <y>10</y>
       <width>41</width>
       <height>31</height>
@@ -384,7 +384,7 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>530</x>
       <y>10</y>
       <width>41</width>
       <height>31</height>
@@ -398,7 +398,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>60</y>
+      <y>90</y>
       <width>151</width>
       <height>22</height>
      </rect>
@@ -417,7 +417,7 @@
     <property name="geometry">
      <rect>
       <x>631</x>
-      <y>90</y>
+      <y>120</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -427,7 +427,7 @@
     <property name="geometry">
      <rect>
       <x>711</x>
-      <y>90</y>
+      <y>120</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -440,7 +440,7 @@
     <property name="geometry">
      <rect>
       <x>581</x>
-      <y>90</y>
+      <y>120</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -453,7 +453,7 @@
     <property name="geometry">
      <rect>
       <x>711</x>
-      <y>20</y>
+      <y>50</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -466,7 +466,7 @@
     <property name="geometry">
      <rect>
       <x>581</x>
-      <y>20</y>
+      <y>50</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -479,7 +479,7 @@
     <property name="geometry">
      <rect>
       <x>631</x>
-      <y>20</y>
+      <y>50</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -489,7 +489,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>130</y>
+      <y>160</y>
       <width>151</width>
       <height>22</height>
      </rect>
@@ -507,8 +507,8 @@
    <widget class="QTextBrowser" name="show_robot_theta">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>460</y>
+      <x>570</x>
+      <y>480</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -517,8 +517,8 @@
    <widget class="QLabel" name="label_17">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>460</y>
+      <x>630</x>
+      <y>480</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -530,8 +530,8 @@
    <widget class="QLabel" name="label_18">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>460</y>
+      <x>490</x>
+      <y>480</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -543,8 +543,8 @@
    <widget class="QLabel" name="label_19">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>500</y>
+      <x>490</x>
+      <y>440</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -556,8 +556,8 @@
    <widget class="QLabel" name="label_20">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>500</y>
+      <x>630</x>
+      <y>440</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -569,11 +569,70 @@
    <widget class="QTextBrowser" name="show_robot_voltage">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>500</y>
+      <x>570</x>
+      <y>440</y>
       <width>51</width>
       <height>31</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>440</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Connection</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="show_connection">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>440</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>480</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kick state</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="show_kickstate">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>480</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reset_theta">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>10</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset target θ</string>
     </property>
    </widget>
   </widget>

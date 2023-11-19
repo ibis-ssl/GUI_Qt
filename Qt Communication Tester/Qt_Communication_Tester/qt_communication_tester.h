@@ -51,6 +51,8 @@ private slots:
 
     void on_vy_valueChanged(int value);
 
+    void on_reset_theta_clicked();
+
 protected:
     bool eventFilter(QObject *object, QEvent *event);
 
@@ -69,6 +71,10 @@ private:
     void readPendingDatagrams();
     void readMsg(QNetworkDatagram datagram);
     uint8_t send_packet[32];
+
+    float two_to_float(uint8_t data[2]);
+    float two_to_int(uint8_t data[2]);
+
 };
 
 
