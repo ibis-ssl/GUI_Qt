@@ -77,7 +77,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     }
 
 
-    ai_cmd.target_theta=(float)(ui->target_theta->value()-180.0)*M_PI/180.0;
+    ai_cmd.target_theta=(float)(ui->target_theta->value()-180.0)*(-1.0)*M_PI/180.0;
 
     // -pi ~ pi -> 0 ~ 32767 ~ 65534
     auto [target_theta_low, target_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
@@ -153,10 +153,10 @@ bool Qt_Communication_Tester::eventKeyPress(QKeyEvent *event)
             ai_cmd.local_target_speed[0]=(float)(ui->vx->value())*(-1.0)/100.0;
             break;
         case Qt::Key_A:
-            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())*(-1.0)/100.0;
+            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())/100.0;
             break;
         case Qt::Key_D:
-            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())/100.0;
+            ai_cmd.local_target_speed[1]=(float)(ui->vy->value())*(-1.0)/100.0;
             break;
         case Qt::Key_Escape:
             if(is_start==1){
@@ -311,7 +311,7 @@ void Qt_Communication_Tester::on_target_theta_valueChanged(int value)
 {
 
     char str[5];
-    sprintf(str,"%d",value-180);
+    sprintf(str,"%d",(value-180)*(-1));
     ui->show_target_theta->setText(str);
 }
 
