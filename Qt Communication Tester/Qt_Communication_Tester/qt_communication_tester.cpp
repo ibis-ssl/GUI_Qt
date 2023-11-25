@@ -6,14 +6,14 @@ ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
 
-#define TX_BUF_SIZE_ETHER (128)
+#define TX_BUF_SIZE_ETHER (126)
 typedef union
 {
     uint8_t buf[TX_BUF_SIZE_ETHER];
 
     struct
     {
-        uint8_t head[2];
+        //uint8_t head[2];
         uint8_t counter, return_counter;
 
         uint8_t kick_state;
@@ -229,13 +229,13 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     QByteArray data = datagram.data();
     int len = data.size();
 
-    tx_msg_t rx_data;
-    memcpy(rx_data.buf, data, len);
 
     const std::size_t count = data.size();
     unsigned char* rec_data =new unsigned char[count];
     std::memcpy(rec_data ,data.data(),count);
 
+    tx_msg_t rx_data;
+    memcpy(rx_data.buf, rec_data , len);
 
     char str[400];
     sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d",
@@ -243,10 +243,10 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     ui->data_from_robot->setText(str);
 
     char str2[10];
-    sprintf(str2,"=%3.2f",rx_data.data.yaw_angle);
+    sprintf(str2,"=%.2f",rx_data.data.yaw_angle);
     ui->show_robot_theta->setText(str2);
     char str3[10];
-    sprintf(str3,"=%3.2f",rx_data.data.voltage[0]);
+    sprintf(str3,"=%.2f",rx_data.data.voltage[0]);
     ui->show_robot_voltage->setText(str3);
 
     char str4[10];

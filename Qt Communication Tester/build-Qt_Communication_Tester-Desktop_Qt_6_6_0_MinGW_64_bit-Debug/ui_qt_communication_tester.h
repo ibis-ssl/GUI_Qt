@@ -220,10 +220,10 @@ public:
         vy->setTickPosition(QSlider::TicksBelow);
         show_robot_theta = new QTextBrowser(centralwidget);
         show_robot_theta->setObjectName("show_robot_theta");
-        show_robot_theta->setGeometry(QRect(590, 490, 81, 31));
+        show_robot_theta->setGeometry(QRect(590, 490, 101, 31));
         label_17 = new QLabel(centralwidget);
         label_17->setObjectName("label_17");
-        label_17->setGeometry(QRect(680, 490, 41, 31));
+        label_17->setGeometry(QRect(700, 490, 41, 31));
         label_18 = new QLabel(centralwidget);
         label_18->setObjectName("label_18");
         label_18->setGeometry(QRect(510, 490, 51, 31));
@@ -232,10 +232,10 @@ public:
         label_19->setGeometry(QRect(510, 450, 81, 31));
         label_20 = new QLabel(centralwidget);
         label_20->setObjectName("label_20");
-        label_20->setGeometry(QRect(680, 450, 41, 31));
+        label_20->setGeometry(QRect(700, 450, 41, 31));
         show_robot_voltage = new QTextBrowser(centralwidget);
         show_robot_voltage->setObjectName("show_robot_voltage");
-        show_robot_voltage->setGeometry(QRect(590, 450, 81, 31));
+        show_robot_voltage->setGeometry(QRect(590, 450, 101, 31));
         label_21 = new QLabel(centralwidget);
         label_21->setObjectName("label_21");
         label_21->setGeometry(QRect(360, 450, 61, 31));
@@ -254,7 +254,7 @@ public:
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 758, 21));
+        menubar->setGeometry(QRect(0, 0, 758, 22));
         Qt_Communication_Tester->setMenuBar(menubar);
         statusbar = new QStatusBar(Qt_Communication_Tester);
         statusbar->setObjectName("statusbar");
