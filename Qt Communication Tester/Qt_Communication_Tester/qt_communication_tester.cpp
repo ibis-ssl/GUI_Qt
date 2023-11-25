@@ -1,9 +1,32 @@
 #include "qt_communication_tester.h"
 #include "ui_qt_communication_tester.h"
+#include <string.h>
 
 ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
+
+#define TX_BUF_SIZE_ETHER (128)
+typedef union
+{
+    uint8_t buf[TX_BUF_SIZE_ETHER];
+
+    struct
+    {
+        uint8_t head[2];
+        uint8_t counter, return_counter;
+
+        uint8_t kick_state;
+        uint8_t temperature[7];
+
+        uint8_t error_info[8];
+        int8_t motor_current[4];
+        uint8_t ball_detection[4];
+
+        float yaw_angle, diff_angle;
+        float odom[2], odom_speed[2], mouse_raw[2], voltage[2];
+    } data;
+} tx_msg_t;
 
 Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     : QMainWindow(parent)
@@ -204,6 +227,9 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
 
     QByteArray data = datagram.data();
     int len = data.size();
+
+    tx_msg_t rx_data;
+    memcpy(rx_data.buf, data, len);
 
     char str[400];
     sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d",
