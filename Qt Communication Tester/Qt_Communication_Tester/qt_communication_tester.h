@@ -15,6 +15,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QKeyEvent>
+#include <QtGlobal>
+#include <QNetworkInterface>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Qt_Communication_Tester; }

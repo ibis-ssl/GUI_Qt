@@ -16,7 +16,7 @@ Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
 
     installEventFilter(this);
 
-
+    orionIP=100;
     char str[5];
     sprintf(str,"%d",0);
     ui->show_dribble_power->setText(str);
@@ -211,7 +211,7 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     ui->data_from_robot->setText(str);
 
     char str2[10];
-    sprintf(str2,"=%d",((data.data()[2] << 8 | data.data()[1]) + 360));
+    sprintf(str2,"=%d",((data.data()[3] << 8 | data.data()[2])));
     ui->show_robot_theta->setText(str2);
     char str3[10];
     sprintf(str3,"=%d",data.data()[7]);
@@ -235,10 +235,13 @@ void Qt_Communication_Tester::on_startbotton_clicked()
         is_start=1;
         thread_time.start();
         recUdpSocket = new QUdpSocket(this);
-        recUdpSocket->bind(QHostAddress::Any ,50000+orionIP);
+        recUdpSocket->bind(QHostAddress::AnyIPv4 ,50000+orionIP, QUdpSocket::ShareAddress);
 
-        QString address = "224.5.20.100." +  QString::number(orionIP);
-        recUdpSocket->joinMulticastGroup(QHostAddress(address));
+        QString address_rec = "224.5.20." +  QString::number(orionIP);
+
+        QList<QNetworkInterface> list = QNetworkInterface::allInterfaces();
+        foreach (QNetworkInterface iface, list)
+        recUdpSocket->joinMulticastGroup(QHostAddress(address_rec), iface);
         connect(recUdpSocket, &QUdpSocket::readyRead, this, &Qt_Communication_Tester::readPendingDatagrams);
     }
     else{
