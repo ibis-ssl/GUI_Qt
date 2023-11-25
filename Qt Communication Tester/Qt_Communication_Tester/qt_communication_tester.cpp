@@ -243,10 +243,10 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     ui->data_from_robot->setText(str);
 
     char str2[10];
-    sprintf(str2,"=%3.2f",((float)((rec_data[3] << 8 | rec_data[4]) - 32767.0)));
+    sprintf(str2,"=%3.2f",rx_data.data.yaw_angle);
     ui->show_robot_theta->setText(str2);
     char str3[10];
-    sprintf(str3,"=%d",rec_data[7]);
+    sprintf(str3,"=%3.2f",rx_data.data.voltage[0]);
     ui->show_robot_voltage->setText(str3);
 
     char str4[10];
@@ -254,7 +254,7 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     ui->show_connection->setText(str4);
 
     char str5[10];
-    sprintf(str5,"=%d",rec_data[6]);
+    sprintf(str5,"=%d",rx_data.data.kick_state);
     ui->show_kickstate->setText(str5);
 
 }
