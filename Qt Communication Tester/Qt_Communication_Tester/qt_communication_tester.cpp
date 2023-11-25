@@ -242,19 +242,19 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             len,rec_data[0],rec_data[1],rec_data[2],rec_data[3],rec_data [4],rec_data [5],rec_data [6],rec_data [7],rec_data [8],rec_data [9],rec_data [10]);
     ui->data_from_robot->setText(str);
 
-    char str2[10];
-    sprintf(str2,"=%.2f",rx_data.data.yaw_angle);
+    char str2[6];
+    sprintf(str2,"%f",rx_data.data.yaw_angle);
     ui->show_robot_theta->setText(str2);
-    char str3[10];
-    sprintf(str3,"=%.2f",rx_data.data.voltage[0]);
+    char str3[6];
+    sprintf(str3,"%f",rx_data.data.voltage[0]);
     ui->show_robot_voltage->setText(str3);
 
-    char str4[10];
-    sprintf(str4,"=%d",rec_data[0]);
+    char str4[6];
+    sprintf(str4,"%d",rec_data[0]);
     ui->show_connection->setText(str4);
 
-    char str5[10];
-    sprintf(str5,"=%d",rx_data.data.kick_state);
+    char str5[6];
+    sprintf(str5,"%d",rx_data.data.kick_state);
     ui->show_kickstate->setText(str5);
 
 }
