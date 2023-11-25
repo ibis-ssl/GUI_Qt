@@ -147,9 +147,10 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
 
     char str2[400];
     sprintf(str2,"ID=%3d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d [11]=%3d [12]=%3d [13]=%3d [14]=%3d [15]=%3d [16]=%3d [17]=%3d [18]=%3d [19]=%3d [20]=%3d [21]=%3d [22]=%3d [23]=%3d",
-            orionIP-100,(int)send_packet[0],(int)send_packet[1],(int)send_packet[2],(int)send_packet[3],(int)send_packet[4],(int)send_packet[5],(int)send_packet[6],(int)send_packet[7],(int)send_packet[8],(int)send_packet[9]
-            ,(int)send_packet[10],(int)send_packet[11],(int)send_packet[12],(int)send_packet[13],(int)send_packet[14],(int)send_packet[15],(int)send_packet[16],(int)send_packet[17],(int)send_packet[18],(int)send_packet[19]
-            ,(int)send_packet[20],(int)send_packet[21],(int)send_packet[22],(int)send_packet[23]);
+            orionIP-100,(uint8_t)send_packet[0],(uint8_t)send_packet[1],(uint8_t)send_packet[2],(uint8_t)send_packet[3],(uint8_t)send_packet[4],(uint8_t)send_packet[5],(uint8_t)send_packet[6]
+            ,(uint8_t)send_packet[7],(uint8_t)send_packet[8],(uint8_t)send_packet[9],(uint8_t)send_packet[10],(uint8_t)send_packet[11],(uint8_t)send_packet[12],(uint8_t)send_packet[13]
+            ,(uint8_t)send_packet[14],(uint8_t)send_packet[15],(uint8_t)send_packet[16],(uint8_t)send_packet[17],(uint8_t)send_packet[18],(uint8_t)send_packet[19]
+            ,(uint8_t)send_packet[20],(uint8_t)send_packet[21],(uint8_t)send_packet[22],(uint8_t)send_packet[23]);
     ui->sendingdata->setText(str2);
     QString address = "192.168.20." +  QString::number(orionIP);
 
@@ -231,24 +232,29 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     tx_msg_t rx_data;
     memcpy(rx_data.buf, data, len);
 
+    const std::size_t count = data.size();
+    unsigned char* rec_data =new unsigned char[count];
+    std::memcpy(rec_data ,data.data(),count);
+
+
     char str[400];
     sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d",
-            len,data.data()[0],data.data()[1],data.data()[2],data.data()[3],data.data()[4],data.data()[5],data.data()[6],data.data()[7],data.data()[8],data.data()[9],data.data()[10]);
+            len,rec_data[0],rec_data[1],rec_data[2],rec_data[3],rec_data [4],rec_data [5],rec_data [6],rec_data [7],rec_data [8],rec_data [9],rec_data [10]);
     ui->data_from_robot->setText(str);
 
     char str2[10];
-    sprintf(str2,"=%d",((data.data()[3] << 8 | data.data()[2])));
+    sprintf(str2,"=%3.2f",((float)((rec_data[3] << 8 | rec_data[4]) - 32767.0)));
     ui->show_robot_theta->setText(str2);
     char str3[10];
-    sprintf(str3,"=%d",data.data()[7]);
+    sprintf(str3,"=%d",rec_data[7]);
     ui->show_robot_voltage->setText(str3);
 
     char str4[10];
-    sprintf(str4,"=%d",data.data()[0]);
+    sprintf(str4,"=%d",rec_data[0]);
     ui->show_connection->setText(str4);
 
     char str5[10];
-    sprintf(str5,"=%d",data.data()[6]);
+    sprintf(str5,"=%d",rec_data[6]);
     ui->show_kickstate->setText(str5);
 
 }
