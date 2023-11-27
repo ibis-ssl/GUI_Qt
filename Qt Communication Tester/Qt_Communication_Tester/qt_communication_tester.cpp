@@ -6,25 +6,25 @@ ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
 
-#define TX_BUF_SIZE_ETHER (126)
+#define TX_BUF_SIZE_ETHER (128)
 typedef union
 {
     uint8_t buf[TX_BUF_SIZE_ETHER];
 
     struct
     {
-        //uint8_t head[2];
+        uint8_t head[2];
         uint8_t counter, return_counter;
 
         uint8_t kick_state;
-        uint8_t temperature[7];
 
+        uint8_t temperature[7];
         uint8_t error_info[8];
         int8_t motor_current[4];
         uint8_t ball_detection[4];
 
-        float yaw_angle, diff_angle;
-        float odom[2], odom_speed[2], mouse_raw[2], voltage[2];
+        float_t yaw_angle, diff_angle;
+        float_t odom[2], odom_speed[2], mouse_raw[2], voltage[2];
     } data;
 } tx_msg_t;
 
@@ -40,6 +40,8 @@ Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     installEventFilter(this);
 
     orionIP=100;
+    ring_counter=0;
+    ring_counter_callback=0;
     char str[5];
     sprintf(str,"%d",0);
     ui->show_dribble_power->setText(str);
@@ -229,7 +231,6 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     QByteArray data = datagram.data();
     int len = data.size();
 
-
     const std::size_t count = data.size();
     unsigned char* rec_data =new unsigned char[count];
     std::memcpy(rec_data ,data.data(),count);
@@ -242,15 +243,66 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             len,rec_data[0],rec_data[1],rec_data[2],rec_data[3],rec_data [4],rec_data [5],rec_data [6],rec_data [7],rec_data [8],rec_data [9],rec_data [10]);
     ui->data_from_robot->setText(str);
 
+    switch (rec_data[2]) {
+    case 10:
+            ring_counter = rec_data[3];
+            rx_data.data.yaw_angle=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
+            rx_data.data.diff_angle=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
+            rx_data.data.ball_detection[0]=rec_data[12];
+            rx_data.data.ball_detection[1]=rec_data[13];
+            rx_data.data.ball_detection[2]=rec_data[14];
+            rx_data.data.ball_detection[3]=rec_data[15];
+            break;
+    case 11:
+            rx_data.data.kick_state=rec_data[3];
+            rx_data.data.error_info[0]=rec_data[4];
+            rx_data.data.error_info[1]=rec_data[5];
+            rx_data.data.error_info[2]=rec_data[6];
+            rx_data.data.error_info[3]=rec_data[7];
+            rx_data.data.error_info[4]=rec_data[8];
+            rx_data.data.error_info[5]=rec_data[9];
+            rx_data.data.error_info[6]=rec_data[10];
+            rx_data.data.error_info[7]=rec_data[11];
+            rx_data.data.motor_current[0]=rec_data[12];
+            rx_data.data.motor_current[1]=rec_data[13];
+            rx_data.data.motor_current[2]=rec_data[14];
+            rx_data.data.motor_current[3]=rec_data[15];
+            break;
+    case 12:
+            rx_data.data.kick_state=rec_data[3]*10;
+            rx_data.data.temperature[0]=rec_data[5];
+            rx_data.data.temperature[1]=rec_data[6];
+            rx_data.data.temperature[2]=rec_data[7];
+            rx_data.data.temperature[3]=rec_data[8];
+            rx_data.data.temperature[4]=rec_data[9];
+            rx_data.data.temperature[5]=rec_data[10];
+            rx_data.data.temperature[6]=rec_data[11];
+            rx_data.data.voltage[0]=(float)(rec_data[12]<<24 & rec_data[13]<<16 & rec_data[14]<<8 & rec_data[15]);
+            break;
+    case 13:
+            rx_data.data.voltage[1]=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
+            rx_data.data.odom[0]=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
+            rx_data.data.odom[1]=(float)(rec_data[12]<<24 & rec_data[13]<<16 & rec_data[14]<<8 & rec_data[15]);
+            break;
+    case 14:
+            ring_counter_callback=rec_data[3];
+            rx_data.data.odom_speed[0]=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
+            rx_data.data.odom_speed[1]=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
+            break;
+    default:
+            break;
+    }
+
+
     char str2[6];
-    sprintf(str2,"%f",rx_data.data.yaw_angle);
+    sprintf(str2,"%4.2f",(float)rx_data.data.yaw_angle);
     ui->show_robot_theta->setText(str2);
     char str3[6];
-    sprintf(str3,"%f",rx_data.data.voltage[0]);
+    sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
     ui->show_robot_voltage->setText(str3);
 
     char str4[6];
-    sprintf(str4,"%d",rec_data[0]);
+    sprintf(str4,"%d",ring_counter);
     ui->show_connection->setText(str4);
 
     char str5[6];

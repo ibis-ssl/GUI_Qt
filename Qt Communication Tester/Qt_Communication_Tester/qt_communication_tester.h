@@ -77,6 +77,7 @@ private:
     float two_to_float(uint8_t data[2]);
     float two_to_int(uint8_t data[2]);
 
+    uint8_t ring_counter, ring_counter_callback;
 };
 
 
