@@ -28,6 +28,13 @@ typedef union
     } data;
 } tx_msg_t;
 
+union Data
+{
+    float f;
+    char b[4];
+};
+
+
 Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Qt_Communication_Tester)
@@ -126,8 +133,8 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     send_packet[2] = static_cast<uint8_t>(vel_surge_low);
     send_packet[3] = static_cast<uint8_t>(vel_sway_high);
     send_packet[4] = static_cast<uint8_t>(vel_sway_low);
-    //send_packet[5] = static_cast<uint8_t>(vision_theta_high);
-    //send_packet[6] = static_cast<uint8_t>(vision_theta_low);
+    send_packet[5] = static_cast<uint8_t>(target_theta_high);
+    send_packet[6] = static_cast<uint8_t>(target_theta_low);
     send_packet[7] = static_cast<uint8_t>(target_theta_high);
     send_packet[8] = static_cast<uint8_t>(target_theta_low);
     send_packet[9] = static_cast<uint8_t>(ai_cmd.kick_power);
@@ -231,30 +238,44 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     QByteArray data = datagram.data();
     int len = data.size();
 
-    const std::size_t count = data.size();
-    unsigned char* rec_data =new unsigned char[count];
-    std::memcpy(rec_data ,data.data(),count);
+    uint8_t rec_data[len];
+    std::memcpy(rec_data ,data.data(),len);
 
     tx_msg_t rx_data;
-    memcpy(rx_data.buf, rec_data , len);
-
-    char str[400];
-    sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d",
-            len,rec_data[0],rec_data[1],rec_data[2],rec_data[3],rec_data [4],rec_data [5],rec_data [6],rec_data [7],rec_data [8],rec_data [9],rec_data [10]);
-    ui->data_from_robot->setText(str);
+    Data data_convert;
 
     switch (rec_data[2]) {
     case 10:
             ring_counter = rec_data[3];
-            rx_data.data.yaw_angle=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
-            rx_data.data.diff_angle=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
+
+            data_convert.b[0]=rec_data[4];
+            data_convert.b[1]=rec_data[5];
+            data_convert.b[2]=rec_data[6];
+            data_convert.b[3]=rec_data[7];
+            rx_data.data.yaw_angle=data_convert.f;
+
+            data_convert.b[0]=rec_data[8];
+            data_convert.b[1]=rec_data[9];
+            data_convert.b[2]=rec_data[10];
+            data_convert.b[3]=rec_data[11];
+            rx_data.data.diff_angle=data_convert.f;
+
+
+            char str4[6];
+            sprintf(str4,"%d",ring_counter);
+            ui->show_connection->setText(str4);
+
+            char str2[6];
+            sprintf(str2,"%4.2f",(float)rx_data.data.yaw_angle);
+            ui->show_robot_theta->setText(str2);
+
             rx_data.data.ball_detection[0]=rec_data[12];
             rx_data.data.ball_detection[1]=rec_data[13];
             rx_data.data.ball_detection[2]=rec_data[14];
             rx_data.data.ball_detection[3]=rec_data[15];
+
             break;
     case 11:
-            rx_data.data.kick_state=rec_data[3];
             rx_data.data.error_info[0]=rec_data[4];
             rx_data.data.error_info[1]=rec_data[5];
             rx_data.data.error_info[2]=rec_data[6];
@@ -267,9 +288,12 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             rx_data.data.motor_current[1]=rec_data[13];
             rx_data.data.motor_current[2]=rec_data[14];
             rx_data.data.motor_current[3]=rec_data[15];
+
+
+
             break;
     case 12:
-            rx_data.data.kick_state=rec_data[3]*10;
+            rx_data.data.kick_state=rec_data[4]*10;
             rx_data.data.temperature[0]=rec_data[5];
             rx_data.data.temperature[1]=rec_data[6];
             rx_data.data.temperature[2]=rec_data[7];
@@ -277,37 +301,64 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             rx_data.data.temperature[4]=rec_data[9];
             rx_data.data.temperature[5]=rec_data[10];
             rx_data.data.temperature[6]=rec_data[11];
-            rx_data.data.voltage[0]=(float)(rec_data[12]<<24 & rec_data[13]<<16 & rec_data[14]<<8 & rec_data[15]);
+
+            data_convert.b[0]=rec_data[12];
+            data_convert.b[1]=rec_data[13];
+            data_convert.b[2]=rec_data[14];
+            data_convert.b[3]=rec_data[15];
+            rx_data.data.voltage[0]=data_convert.f;
+
+            char str5[6];
+            sprintf(str5,"%d",rx_data.data.kick_state);
+            ui->show_kickstate->setText(str5);
+
+            char str3[6];
+            sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
+            ui->show_robot_voltage->setText(str3);
+
             break;
     case 13:
-            rx_data.data.voltage[1]=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
-            rx_data.data.odom[0]=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
-            rx_data.data.odom[1]=(float)(rec_data[12]<<24 & rec_data[13]<<16 & rec_data[14]<<8 & rec_data[15]);
+
+            data_convert.b[0]=rec_data[4];
+            data_convert.b[1]=rec_data[5];
+            data_convert.b[2]=rec_data[6];
+            data_convert.b[3]=rec_data[7];
+            rx_data.data.voltage[1]=data_convert.f;
+            data_convert.b[0]=rec_data[8];
+            data_convert.b[1]=rec_data[9];
+            data_convert.b[2]=rec_data[10];
+            data_convert.b[3]=rec_data[11];
+            rx_data.data.odom[0]=data_convert.f;
+            data_convert.b[0]=rec_data[12];
+            data_convert.b[1]=rec_data[13];
+            data_convert.b[2]=rec_data[14];
+            data_convert.b[3]=rec_data[15];
+            rx_data.data.odom[1]=data_convert.f;
             break;
     case 14:
             ring_counter_callback=rec_data[3];
-            rx_data.data.odom_speed[0]=(float)(rec_data[4]<<24 & rec_data[5]<<16 & rec_data[6]<<8 & rec_data[7]);
-            rx_data.data.odom_speed[1]=(float)(rec_data[8]<<24 & rec_data[9]<<16 & rec_data[10]<<8 & rec_data[11]);
+            data_convert.b[0]=rec_data[4];
+            data_convert.b[1]=rec_data[5];
+            data_convert.b[2]=rec_data[6];
+            data_convert.b[3]=rec_data[7];
+            rx_data.data.odom_speed[0]=data_convert.f;
+            data_convert.b[0]=rec_data[8];
+            data_convert.b[1]=rec_data[9];
+            data_convert.b[2]=rec_data[10];
+            data_convert.b[3]=rec_data[11];
+            rx_data.data.odom_speed[1]=data_convert.f;
             break;
     default:
             break;
     }
 
+    char str[400];
+    sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d \n [4]=%x  [5]=%x  [6]=%x [7]=%x \n [8]=%x [9]=%x [10]=%x [11]=%x \n [12]=%x [13]=%x [14]=%x [15]=%x",
+            len,rec_data[0],rec_data[1],rec_data[2],rec_data[3],rec_data [4],rec_data [5],rec_data [6],rec_data [7],rec_data [8],rec_data [9],rec_data [10]
+            ,rec_data [11],rec_data [12],rec_data [13],rec_data [14],rec_data [15]);
+    ui->data_from_robot->setText(str);
 
-    char str2[6];
-    sprintf(str2,"%4.2f",(float)rx_data.data.yaw_angle);
-    ui->show_robot_theta->setText(str2);
-    char str3[6];
-    sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
-    ui->show_robot_voltage->setText(str3);
 
-    char str4[6];
-    sprintf(str4,"%d",ring_counter);
-    ui->show_connection->setText(str4);
-
-    char str5[6];
-    sprintf(str5,"%d",rx_data.data.kick_state);
-    ui->show_kickstate->setText(str5);
 
 }
 
