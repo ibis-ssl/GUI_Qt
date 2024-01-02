@@ -247,19 +247,20 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     switch (rec_data[2]) {
     case 10:
             ring_counter = rec_data[3];
-
             data_convert.b[0]=rec_data[4];
             data_convert.b[1]=rec_data[5];
             data_convert.b[2]=rec_data[6];
             data_convert.b[3]=rec_data[7];
             rx_data.data.yaw_angle=data_convert.f;
-
             data_convert.b[0]=rec_data[8];
             data_convert.b[1]=rec_data[9];
             data_convert.b[2]=rec_data[10];
             data_convert.b[3]=rec_data[11];
             rx_data.data.diff_angle=data_convert.f;
-
+            rx_data.data.ball_detection[0]=rec_data[12];
+            rx_data.data.ball_detection[1]=rec_data[13];
+            rx_data.data.ball_detection[2]=rec_data[14];
+            rx_data.data.ball_detection[3]=rec_data[15];
 
             char str4[6];
             sprintf(str4,"%d",ring_counter);
@@ -270,12 +271,6 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             char str_2[6];
             sprintf(str_2,"%4.2f",(float)rx_data.data.diff_angle);
             ui->show_robot_theta_diff->setText(str_2);
-
-            rx_data.data.ball_detection[0]=rec_data[12];
-            rx_data.data.ball_detection[1]=rec_data[13];
-            rx_data.data.ball_detection[2]=rec_data[14];
-            rx_data.data.ball_detection[3]=rec_data[15];
-
             char str_ball0[6];
             sprintf(str_ball0,"%d",rx_data.data.ball_detection[0]);
             ui->show_ball0->setText(str_ball0);
@@ -351,7 +346,6 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             rx_data.data.temperature[4]=rec_data[9];
             rx_data.data.temperature[5]=rec_data[10];
             rx_data.data.temperature[6]=rec_data[11];
-
             data_convert.b[0]=rec_data[12];
             data_convert.b[1]=rec_data[13];
             data_convert.b[2]=rec_data[14];
@@ -382,7 +376,6 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             char str_temp6[6];
             sprintf(str_temp6,"%d",rx_data.data.temperature[6]);
             ui->show_temp6->setText(str_temp6);
-
             char str3[6];
             sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
             ui->show_robot_voltage->setText(str3);
@@ -404,6 +397,7 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             data_convert.b[2]=rec_data[14];
             data_convert.b[3]=rec_data[15];
             rx_data.data.odom[1]=data_convert.f * 1000;
+
             char str6[6];
             sprintf(str6,"%4.2f",rx_data.data.voltage[1]);
             ui->show_cap_voltage->setText(str6);
@@ -426,6 +420,7 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
             data_convert.b[2]=rec_data[10];
             data_convert.b[3]=rec_data[11];
             rx_data.data.odom_speed[1]=data_convert.f;
+
             char str9[6];
             sprintf(str9,"%4.2f",rx_data.data.odom_speed[0]);
             ui->show_speedx->setText(str9);
