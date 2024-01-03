@@ -357,13 +357,13 @@ public:
         show_current3->setGeometry(QRect(560, 600, 41, 31));
         show_error0 = new QTextBrowser(centralwidget);
         show_error0->setObjectName("show_error0");
-        show_error0->setGeometry(QRect(60, 480, 51, 31));
+        show_error0->setGeometry(QRect(60, 480, 61, 31));
         label_38 = new QLabel(centralwidget);
         label_38->setObjectName("label_38");
         label_38->setGeometry(QRect(20, 480, 31, 31));
         show_error1 = new QTextBrowser(centralwidget);
         show_error1->setObjectName("show_error1");
-        show_error1->setGeometry(QRect(130, 480, 51, 31));
+        show_error1->setGeometry(QRect(130, 480, 61, 31));
         show_error2 = new QTextBrowser(centralwidget);
         show_error2->setObjectName("show_error2");
         show_error2->setGeometry(QRect(200, 480, 61, 31));
@@ -418,7 +418,7 @@ public:
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 760, 22));
+        menubar->setGeometry(QRect(0, 0, 760, 21));
         Qt_Communication_Tester->setMenuBar(menubar);
         statusbar = new QStatusBar(Qt_Communication_Tester);
         statusbar->setObjectName("statusbar");

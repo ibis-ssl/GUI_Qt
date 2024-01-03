@@ -1,11 +1,54 @@
 #include "qt_robot_info.h"
 #include "ui_qt_robot_info.h"
+#include <string.h>
+
+ai_cmd_t ai_cmd;
+int kick_EN=0;
+int dribble_EN=0;
+
+#define TX_BUF_SIZE_ETHER (128)
+typedef union
+{
+    uint8_t buf[TX_BUF_SIZE_ETHER];
+
+    struct
+    {
+        uint8_t head[2];
+        uint8_t counter, return_counter;
+
+        uint8_t kick_state;
+
+        uint8_t temperature[7];
+        uint8_t error_info[8];
+        int8_t motor_current[4];
+        uint8_t ball_detection[4];
+
+        float_t yaw_angle, diff_angle;
+        float_t odom[2], odom_speed[2], mouse_raw[2], voltage[2];
+    } data;
+} tx_msg_t;
+
+union Data
+{
+    float f;
+    char b[4];
+};
+
+
 
 Qt_Robot_info::Qt_Robot_info(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Qt_Robot_info)
 {
     ui->setupUi(this);
+    is_start=0;
+    ai_cmd.allow_local_flags=0;
+
+    installEventFilter(this);
+
+    orionIP=100;
+    ring_counter=0;
+    ring_counter_callback=0;
 }
 
 Qt_Robot_info::~Qt_Robot_info()
@@ -13,6 +56,13 @@ Qt_Robot_info::~Qt_Robot_info()
     delete ui;
 }
 
+
+void Qt_Robot_info::readPendingDatagrams(){
+    while (recUdpSocket->hasPendingDatagrams()) {
+        QNetworkDatagram datagram = recUdpSocket->receiveDatagram();
+        readMsg(datagram);
+    }
+}
 
 void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
 
@@ -222,3 +272,46 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
 
 
 }
+
+
+void Qt_Robot_info::on_startbotton_clicked()
+{
+
+    if(is_start==0){
+        ui->log->append("start");
+        ui->startbotton->setText(QString::fromLocal8Bit("stop"));
+        is_start=1;
+        recUdpSocket = new QUdpSocket(this);
+        recUdpSocket->bind(QHostAddress::AnyIPv4 ,50000+orionIP, QUdpSocket::ShareAddress);
+
+        QString address_rec = "224.5.20." +  QString::number(orionIP);
+
+        QList<QNetworkInterface> list = QNetworkInterface::allInterfaces();
+        foreach (QNetworkInterface iface, list)
+            recUdpSocket->joinMulticastGroup(QHostAddress(address_rec), iface);
+        connect(recUdpSocket, &QUdpSocket::readyRead, this, &Qt_Robot_info::readPendingDatagrams);
+    }
+    else{
+        ui->log->append("stop");
+        ui->startbotton->setText(QString::fromLocal8Bit("start"));
+        is_start=0;
+
+        recUdpSocket->close();
+
+    }
+
+}
+
+
+void Qt_Robot_info::on_setIP_textChanged(const QString &arg1)
+{
+
+    orionIP = arg1.toInt();
+    char str[100];
+    sprintf(str,"set to IP address to 192.168.20.%d",orionIP);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+}
+
