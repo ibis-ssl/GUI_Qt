@@ -555,12 +555,19 @@ bool Qt_Communication_Tester::eventFilter(QObject *, QEvent *event)
 {
     bool bRtn = false;
 
-    if (event->type() == QEvent::KeyPress) {
-        bRtn = eventKeyPress(static_cast<QKeyEvent *>(event));
+    if(event->type() ==  QEvent::WindowDeactivate){
+        ai_cmd.local_target_speed[0]=0.0;
+        ai_cmd.local_target_speed[1]=0.0;
     }
-    else if (event->type() == QEvent::KeyRelease) {
-        bRtn = eventKeyRelease(static_cast<QKeyEvent *>(event));
+    else{
+        if (event->type() == QEvent::KeyPress) {
+            bRtn = eventKeyPress(static_cast<QKeyEvent *>(event));
+        }
+        else if (event->type() == QEvent::KeyRelease) {
+            bRtn = eventKeyRelease(static_cast<QKeyEvent *>(event));
+        }
     }
+
     return bRtn;
 }
 
