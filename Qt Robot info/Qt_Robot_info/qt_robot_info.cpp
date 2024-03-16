@@ -87,11 +87,11 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         data_convert.b[1]=rec_data[9];
         data_convert.b[2]=rec_data[10];
         data_convert.b[3]=rec_data[11];
-        rx_data.data.diff_angle=data_convert.f;
+        rx_data.data.voltage[0]=data_convert.f;
         rx_data.data.ball_detection[0]=rec_data[12];
         rx_data.data.ball_detection[1]=rec_data[13];
         rx_data.data.ball_detection[2]=rec_data[14];
-        rx_data.data.ball_detection[3]=rec_data[15];
+        rx_data.data.kick_state=rec_data[15]*10;
 
         char str4[6];
         sprintf(str4,"%d",ring_counter);
@@ -99,9 +99,9 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str2[6];
         sprintf(str2,"%4.2f",(float)rx_data.data.yaw_angle);
         ui->show_robot_theta->setText(str2);
-        char str_2[6];
-        sprintf(str_2,"%4.2f",(float)rx_data.data.diff_angle);
-        ui->show_robot_theta_diff->setText(str_2);
+        char str3[6];
+        sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
+        ui->show_robot_voltage->setText(str3);
         char str_ball0[6];
         sprintf(str_ball0,"%d",rx_data.data.ball_detection[0]);
         ui->show_ball0->setText(str_ball0);
@@ -111,9 +111,9 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str_ball2[6];
         sprintf(str_ball2,"%d",rx_data.data.ball_detection[2]);
         ui->show_ball2->setText(str_ball2);
-        char str_ball3[6];
-        sprintf(str_ball3,"%d",rx_data.data.ball_detection[3]);
-        ui->show_ball3->setText(str_ball3);
+        char str5[6];
+        sprintf(str5,"%d",rx_data.data.kick_state);
+        ui->show_kickstate->setText(str5);
 
         break;
     case 11:
@@ -169,7 +169,8 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
 
         break;
     case 12:
-        rx_data.data.kick_state=rec_data[4]*10;
+
+        rx_data.data.ball_detection[3]=rec_data[4];
         rx_data.data.temperature[0]=rec_data[5];
         rx_data.data.temperature[1]=rec_data[6];
         rx_data.data.temperature[2]=rec_data[7];
@@ -177,15 +178,16 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         rx_data.data.temperature[4]=rec_data[9];
         rx_data.data.temperature[5]=rec_data[10];
         rx_data.data.temperature[6]=rec_data[11];
-        data_convert.b[0]=rec_data[12];
-        data_convert.b[1]=rec_data[13];
-        data_convert.b[2]=rec_data[14];
-        data_convert.b[3]=rec_data[15];
-        rx_data.data.voltage[0]=data_convert.f;
+        data_convert.b[0]=rec_data[8];
+        data_convert.b[1]=rec_data[9];
+        data_convert.b[2]=rec_data[10];
+        data_convert.b[3]=rec_data[11];
+        rx_data.data.diff_angle=data_convert.f;
 
-        char str5[6];
-        sprintf(str5,"%d",rx_data.data.kick_state);
-        ui->show_kickstate->setText(str5);
+
+        char str_ball3[6];
+        sprintf(str_ball3,"%d",rx_data.data.ball_detection[3]);
+        ui->show_ball3->setText(str_ball3);
         char str_temp0[6];
         sprintf(str_temp0,"%d",rx_data.data.temperature[0]);
         ui->show_temp0->setText(str_temp0);
@@ -207,9 +209,9 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str_temp6[6];
         sprintf(str_temp6,"%d",rx_data.data.temperature[6]);
         ui->show_temp6->setText(str_temp6);
-        char str3[6];
-        sprintf(str3,"%4.2f",rx_data.data.voltage[0]);
-        ui->show_robot_voltage->setText(str3);
+        char str_diff[6];
+        sprintf(str_diff,"%4.2f",rx_data.data.diff_angle);
+        ui->show_robot_theta_diff->setText(str_diff);
 
         break;
     case 13:
