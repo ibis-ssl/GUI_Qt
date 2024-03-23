@@ -230,8 +230,8 @@ public:
         vx = new QSlider(centralwidget);
         vx->setObjectName("vx");
         vx->setGeometry(QRect(590, 90, 151, 31));
-        vx->setMaximum(200);
-        vx->setValue(30);
+        vx->setMaximum(500);
+        vx->setValue(50);
         vx->setOrientation(Qt::Horizontal);
         vx->setTickPosition(QSlider::TicksBelow);
         show_vy = new QTextBrowser(centralwidget);
@@ -255,8 +255,8 @@ public:
         vy = new QSlider(centralwidget);
         vy->setObjectName("vy");
         vy->setGeometry(QRect(590, 160, 151, 31));
-        vy->setMaximum(200);
-        vy->setValue(30);
+        vy->setMaximum(500);
+        vy->setValue(50);
         vy->setOrientation(Qt::Horizontal);
         vy->setTickPosition(QSlider::TicksBelow);
         show_robot_theta = new QTextBrowser(centralwidget);
@@ -418,7 +418,7 @@ public:
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 760, 21));
+        menubar->setGeometry(QRect(0, 0, 760, 22));
         Qt_Communication_Tester->setMenuBar(menubar);
         statusbar = new QStatusBar(Qt_Communication_Tester);
         statusbar->setObjectName("statusbar");
