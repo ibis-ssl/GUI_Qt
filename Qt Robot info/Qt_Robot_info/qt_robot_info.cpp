@@ -75,8 +75,6 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
     tx_msg_t rx_data;
     Data data_convert;
 
-    switch (rec_data[2]) {
-    case 10:
         ring_counter = rec_data[3];
         data_convert.b[0]=rec_data[4];
         data_convert.b[1]=rec_data[5];
@@ -255,10 +253,6 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str10[6];
         sprintf(str10,"%4.2f",rx_data.data.odom_speed[1]);
         ui->show_speedy->setText(str10);
-        break;
-    default:
-        break;
-    }
 
     char str[400];
     sprintf(str,"data_len=%d [0]=%3d [1]=%3d [2]=%3d [3]=%3d \n [4]=%x  [5]=%x  [6]=%x [7]=%x \n [8]=%x [9]=%x [10]=%x [11]=%x \n [12]=%x [13]=%x [14]=%x [15]=%x",
