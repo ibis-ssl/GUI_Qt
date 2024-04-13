@@ -115,20 +115,19 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         sprintf(str5,"%d",rx_data.data.kick_state);
         ui->show_kickstate->setText(str5);
 
-        break;
-    case 11:
-        rx_data.data.error_info[0]=rec_data[4];
-        rx_data.data.error_info[1]=rec_data[5];
-        rx_data.data.error_info[2]=rec_data[6];
-        rx_data.data.error_info[3]=rec_data[7];
-        rx_data.data.error_info[4]=rec_data[8];
-        rx_data.data.error_info[5]=rec_data[9];
-        rx_data.data.error_info[6]=rec_data[10];
-        rx_data.data.error_info[7]=rec_data[11];
-        rx_data.data.motor_current[0]=rec_data[12];
-        rx_data.data.motor_current[1]=rec_data[13];
-        rx_data.data.motor_current[2]=rec_data[14];
-        rx_data.data.motor_current[3]=rec_data[15];
+
+        rx_data.data.error_info[0]=rec_data[16];
+        rx_data.data.error_info[1]=rec_data[17];
+        rx_data.data.error_info[2]=rec_data[18];
+        rx_data.data.error_info[3]=rec_data[19];
+        rx_data.data.error_info[4]=rec_data[20];
+        rx_data.data.error_info[5]=rec_data[21];
+        rx_data.data.error_info[6]=rec_data[22];
+        rx_data.data.error_info[7]=rec_data[23];
+        rx_data.data.motor_current[0]=rec_data[24];
+        rx_data.data.motor_current[1]=rec_data[25];
+        rx_data.data.motor_current[2]=rec_data[26];
+        rx_data.data.motor_current[3]=rec_data[27];
 
         char str_error0[6];
         sprintf(str_error0,"%d",rx_data.data.error_info[0]);
@@ -167,21 +166,20 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         sprintf(str_current3,"%d",rx_data.data.motor_current[3]);
         ui->show_current3->setText(str_current3);
 
-        break;
-    case 12:
 
-        rx_data.data.ball_detection[3]=rec_data[4];
-        rx_data.data.temperature[0]=rec_data[5];
-        rx_data.data.temperature[1]=rec_data[6];
-        rx_data.data.temperature[2]=rec_data[7];
-        rx_data.data.temperature[3]=rec_data[8];
-        rx_data.data.temperature[4]=rec_data[9];
-        rx_data.data.temperature[5]=rec_data[10];
-        rx_data.data.temperature[6]=rec_data[11];
-        data_convert.b[0]=rec_data[8];
-        data_convert.b[1]=rec_data[9];
-        data_convert.b[2]=rec_data[10];
-        data_convert.b[3]=rec_data[11];
+        rx_data.data.ball_detection[3]=rec_data[28];
+
+        rx_data.data.temperature[0]=rec_data[29];
+        rx_data.data.temperature[1]=rec_data[30];
+        rx_data.data.temperature[2]=rec_data[31];
+        rx_data.data.temperature[3]=rec_data[32];
+        rx_data.data.temperature[4]=rec_data[33];
+        rx_data.data.temperature[5]=rec_data[34];
+        rx_data.data.temperature[6]=rec_data[35];
+        data_convert.b[0]=rec_data[36];
+        data_convert.b[1]=rec_data[37];
+        data_convert.b[2]=rec_data[38];
+        data_convert.b[3]=rec_data[39];
         rx_data.data.diff_angle=data_convert.f;
 
 
@@ -213,22 +211,20 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         sprintf(str_diff,"%4.2f",rx_data.data.diff_angle);
         ui->show_robot_theta_diff->setText(str_diff);
 
-        break;
-    case 13:
-        data_convert.b[0]=rec_data[4];
-        data_convert.b[1]=rec_data[5];
-        data_convert.b[2]=rec_data[6];
-        data_convert.b[3]=rec_data[7];
+        data_convert.b[0]=rec_data[40];
+        data_convert.b[1]=rec_data[41];
+        data_convert.b[2]=rec_data[42];
+        data_convert.b[3]=rec_data[43];
         rx_data.data.voltage[1]=data_convert.f;
-        data_convert.b[0]=rec_data[8];
-        data_convert.b[1]=rec_data[9];
-        data_convert.b[2]=rec_data[10];
-        data_convert.b[3]=rec_data[11];
+        data_convert.b[0]=rec_data[44];
+        data_convert.b[1]=rec_data[45];
+        data_convert.b[2]=rec_data[46];
+        data_convert.b[3]=rec_data[47];
         rx_data.data.odom[0]=data_convert.f * 1000;
-        data_convert.b[0]=rec_data[12];
-        data_convert.b[1]=rec_data[13];
-        data_convert.b[2]=rec_data[14];
-        data_convert.b[3]=rec_data[15];
+        data_convert.b[0]=rec_data[48];
+        data_convert.b[1]=rec_data[49];
+        data_convert.b[2]=rec_data[50];
+        data_convert.b[3]=rec_data[51];
         rx_data.data.odom[1]=data_convert.f * 1000;
 
         char str6[6];
@@ -240,18 +236,17 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str8[6];
         sprintf(str8,"%4.2f",rx_data.data.odom[1]);
         ui->show_odomy->setText(str8);
-        break;
-    case 14:
         ring_counter_callback=rec_data[3];
-        data_convert.b[0]=rec_data[4];
-        data_convert.b[1]=rec_data[5];
-        data_convert.b[2]=rec_data[6];
-        data_convert.b[3]=rec_data[7];
+
+        data_convert.b[0]=rec_data[52];
+        data_convert.b[1]=rec_data[53];
+        data_convert.b[2]=rec_data[54];
+        data_convert.b[3]=rec_data[55];
         rx_data.data.odom_speed[0]=data_convert.f;
-        data_convert.b[0]=rec_data[8];
-        data_convert.b[1]=rec_data[9];
-        data_convert.b[2]=rec_data[10];
-        data_convert.b[3]=rec_data[11];
+        data_convert.b[0]=rec_data[56];
+        data_convert.b[1]=rec_data[57];
+        data_convert.b[2]=rec_data[58];
+        data_convert.b[3]=rec_data[59];
         rx_data.data.odom_speed[1]=data_convert.f;
 
         char str9[6];
