@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>732</width>
-    <height>326</height>
+    <height>304</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -485,35 +485,25 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="show_error5">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>10</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_38">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>430</x>
       <y>10</y>
-      <width>31</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Error</string>
+     <string>Error  info</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="show_error1">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>490</x>
       <y>10</y>
-      <width>41</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
@@ -521,9 +511,9 @@
    <widget class="QTextBrowser" name="show_error2">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>620</x>
       <y>10</y>
-      <width>41</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -535,26 +525,6 @@
       <y>60</y>
       <width>341</width>
       <height>81</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="show_error7">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>10</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="show_error3">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>10</y>
-      <width>41</width>
-      <height>31</height>
      </rect>
     </property>
    </widget>
@@ -574,9 +544,9 @@
    <widget class="QTextBrowser" name="show_error0">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>360</x>
       <y>10</y>
-      <width>41</width>
+      <width>61</width>
       <height>31</height>
      </rect>
     </property>
@@ -594,26 +564,6 @@
      <string>Data from robot</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="show_error4">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>10</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="show_error6">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>10</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QTextBrowser" name="log">
     <property name="geometry">
      <rect>
@@ -627,9 +577,9 @@
    <widget class="QSpinBox" name="setIP">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>10</y>
-      <width>42</width>
+      <width>51</width>
       <height>31</height>
      </rect>
     </property>
@@ -645,7 +595,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>91</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -656,7 +606,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>10</y>
       <width>111</width>
       <height>31</height>
@@ -666,6 +616,32 @@
      <string>Target IP: 192.168.20.</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_39">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>10</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> Error value</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_40">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>10</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Error ID</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -673,7 +649,7 @@
      <x>0</x>
      <y>0</y>
      <width>732</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

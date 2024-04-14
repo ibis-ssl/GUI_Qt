@@ -19,7 +19,8 @@ typedef union
         uint8_t kick_state;
 
         uint8_t temperature[7];
-        uint8_t error_info[8];
+        uint16_t error_info[2];
+        float error_info_data[1];
         int8_t motor_current[4];
         uint8_t ball_detection[4];
 
@@ -32,6 +33,12 @@ union Data
 {
     float f;
     char b[4];
+};
+
+union Data16
+{
+    uint16_t f16;
+    char c[2];
 };
 
 
@@ -243,6 +250,7 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
 
     tx_msg_t rx_data;
     Data data_convert;
+    Data16 data_convert16;
 
     ring_counter = rec_data[3];
     data_convert.b[0]=rec_data[4];
@@ -283,14 +291,20 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     ui->show_kickstate->setText(str5);
 
 
-    rx_data.data.error_info[0]=rec_data[16];
-    rx_data.data.error_info[1]=rec_data[17];
-    rx_data.data.error_info[2]=rec_data[18];
-    rx_data.data.error_info[3]=rec_data[19];
-    rx_data.data.error_info[4]=rec_data[20];
-    rx_data.data.error_info[5]=rec_data[21];
-    rx_data.data.error_info[6]=rec_data[22];
-    rx_data.data.error_info[7]=rec_data[23];
+
+
+    data_convert16.c[0]=rec_data[16];
+    data_convert16.c[1]=rec_data[17];
+    rx_data.data.error_info[0]=data_convert16.f16;
+    data_convert16.c[0]=rec_data[18];
+    data_convert16.c[1]=rec_data[19];
+    rx_data.data.error_info[1]=data_convert16.f16;
+    data_convert.b[0]=rec_data[20];
+    data_convert.b[1]=rec_data[21];
+    data_convert.b[2]=rec_data[22];
+    data_convert.b[3]=rec_data[23];
+    rx_data.data.error_info_data[0]=data_convert.f;
+
     rx_data.data.motor_current[0]=rec_data[24];
     rx_data.data.motor_current[1]=rec_data[25];
     rx_data.data.motor_current[2]=rec_data[26];
@@ -303,23 +317,8 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     sprintf(str_error1,"%d",rx_data.data.error_info[1]);
     ui->show_error1->setText(str_error1);
     char str_error2[6];
-    sprintf(str_error2,"%d",rx_data.data.error_info[2]);
+    sprintf(str_error2,"%4.2f",rx_data.data.error_info_data[0]);
     ui->show_error2->setText(str_error2);
-    char str_error3[6];
-    sprintf(str_error3,"%d",rx_data.data.error_info[3]);
-    ui->show_error3->setText(str_error3);
-    char str_error4[6];
-    sprintf(str_error4,"%d",rx_data.data.error_info[4]);
-    ui->show_error4->setText(str_error4);
-    char str_error5[6];
-    sprintf(str_error5,"%d",rx_data.data.error_info[5]);
-    ui->show_error5->setText(str_error5);
-    char str_error6[6];
-    sprintf(str_error6,"%d",rx_data.data.error_info[6]);
-    ui->show_error6->setText(str_error6);
-    char str_error7[6];
-    sprintf(str_error7,"%d",rx_data.data.error_info[7]);
-    ui->show_error7->setText(str_error7);
     char str_current0[6];
     sprintf(str_current0,"%d",rx_data.data.motor_current[0]);
     ui->show_current0->setText(str_current0);
@@ -332,7 +331,6 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     char str_current3[6];
     sprintf(str_current3,"%d",rx_data.data.motor_current[3]);
     ui->show_current3->setText(str_current3);
-
 
     rx_data.data.ball_detection[3]=rec_data[28];
 

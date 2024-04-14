@@ -102,11 +102,6 @@ public:
     QLabel *label_38;
     QTextBrowser *show_error1;
     QTextBrowser *show_error2;
-    QTextBrowser *show_error3;
-    QTextBrowser *show_error4;
-    QTextBrowser *show_error5;
-    QTextBrowser *show_error7;
-    QTextBrowser *show_error6;
     QTextBrowser *show_ball1;
     QTextBrowser *show_ball0;
     QLabel *label_47;
@@ -118,6 +113,8 @@ public:
     QLabel *label_30;
     QTextBrowser *show_robot_theta_diff;
     QLabel *label_31;
+    QLabel *label_39;
+    QLabel *label_40;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -161,10 +158,10 @@ public:
         label_5->setGeometry(QRect(20, 350, 111, 21));
         log = new QTextBrowser(centralwidget);
         log->setObjectName("log");
-        log->setGeometry(QRect(20, 580, 331, 91));
+        log->setGeometry(QRect(20, 540, 331, 131));
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(20, 550, 41, 31));
+        label_6->setGeometry(QRect(20, 510, 41, 31));
         setIP = new QSpinBox(centralwidget);
         setIP->setObjectName("setIP");
         setIP->setGeometry(QRect(220, 10, 42, 31));
@@ -357,31 +354,16 @@ public:
         show_current3->setGeometry(QRect(560, 600, 41, 31));
         show_error0 = new QTextBrowser(centralwidget);
         show_error0->setObjectName("show_error0");
-        show_error0->setGeometry(QRect(60, 480, 61, 31));
+        show_error0->setGeometry(QRect(60, 480, 51, 31));
         label_38 = new QLabel(centralwidget);
         label_38->setObjectName("label_38");
-        label_38->setGeometry(QRect(20, 480, 31, 31));
+        label_38->setGeometry(QRect(20, 480, 41, 31));
         show_error1 = new QTextBrowser(centralwidget);
         show_error1->setObjectName("show_error1");
-        show_error1->setGeometry(QRect(130, 480, 61, 31));
+        show_error1->setGeometry(QRect(180, 480, 51, 31));
         show_error2 = new QTextBrowser(centralwidget);
         show_error2->setObjectName("show_error2");
-        show_error2->setGeometry(QRect(200, 480, 61, 31));
-        show_error3 = new QTextBrowser(centralwidget);
-        show_error3->setObjectName("show_error3");
-        show_error3->setGeometry(QRect(130, 520, 61, 31));
-        show_error4 = new QTextBrowser(centralwidget);
-        show_error4->setObjectName("show_error4");
-        show_error4->setGeometry(QRect(60, 520, 61, 31));
-        show_error5 = new QTextBrowser(centralwidget);
-        show_error5->setObjectName("show_error5");
-        show_error5->setGeometry(QRect(270, 480, 61, 31));
-        show_error7 = new QTextBrowser(centralwidget);
-        show_error7->setObjectName("show_error7");
-        show_error7->setGeometry(QRect(270, 520, 61, 31));
-        show_error6 = new QTextBrowser(centralwidget);
-        show_error6->setObjectName("show_error6");
-        show_error6->setGeometry(QRect(200, 520, 61, 31));
+        show_error2->setGeometry(QRect(300, 480, 61, 31));
         show_ball1 = new QTextBrowser(centralwidget);
         show_ball1->setObjectName("show_ball1");
         show_ball1->setGeometry(QRect(460, 640, 41, 31));
@@ -415,6 +397,12 @@ public:
         label_31 = new QLabel(centralwidget);
         label_31->setObjectName("label_31");
         label_31->setGeometry(QRect(520, 440, 41, 31));
+        label_39 = new QLabel(centralwidget);
+        label_39->setObjectName("label_39");
+        label_39->setGeometry(QRect(240, 480, 61, 31));
+        label_40 = new QLabel(centralwidget);
+        label_40->setObjectName("label_40");
+        label_40->setGeometry(QRect(120, 480, 51, 31));
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
@@ -467,12 +455,14 @@ public:
         label_26->setText(QCoreApplication::translate("Qt_Communication_Tester", "speed X", nullptr));
         label_27->setText(QCoreApplication::translate("Qt_Communication_Tester", "Temp", nullptr));
         label_34->setText(QCoreApplication::translate("Qt_Communication_Tester", "Current", nullptr));
-        label_38->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error", nullptr));
+        label_38->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error ID", nullptr));
         label_47->setText(QCoreApplication::translate("Qt_Communication_Tester", "Ball", nullptr));
         label_28->setText(QCoreApplication::translate("Qt_Communication_Tester", "V", nullptr));
         label_29->setText(QCoreApplication::translate("Qt_Communication_Tester", "Cap Voltage", nullptr));
         label_30->setText(QCoreApplication::translate("Qt_Communication_Tester", "Robot \316\270", nullptr));
         label_31->setText(QCoreApplication::translate("Qt_Communication_Tester", "deg", nullptr));
+        label_39->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error value", nullptr));
+        label_40->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error info", nullptr));
     } // retranslateUi
 
 };
