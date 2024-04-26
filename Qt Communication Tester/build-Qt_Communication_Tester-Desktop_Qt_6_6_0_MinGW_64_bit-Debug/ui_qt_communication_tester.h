@@ -1,13 +1,11 @@
+#pragma once
 /********************************************************************************
-** Form generated from reading UI file 'qt_communication_tester.ui'
+** Form generated from reading UI file ''
 **
 ** Created by: Qt User Interface Compiler version 6.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
-
-#ifndef UI_QT_COMMUNICATION_TESTER_H
-#define UI_QT_COMMUNICATION_TESTER_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -115,6 +113,7 @@ public:
     QLabel *label_31;
     QLabel *label_39;
     QLabel *label_40;
+    QCheckBox *VisionOK;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -403,6 +402,10 @@ public:
         label_40 = new QLabel(centralwidget);
         label_40->setObjectName("label_40");
         label_40->setGeometry(QRect(120, 480, 51, 31));
+        VisionOK = new QCheckBox(centralwidget);
+        VisionOK->setObjectName("localEN_2");
+        VisionOK->setEnabled(true);
+        VisionOK->setGeometry(QRect(280, 60, 75, 20));
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
@@ -463,6 +466,7 @@ public:
         label_31->setText(QCoreApplication::translate("Qt_Communication_Tester", "deg", nullptr));
         label_39->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error value", nullptr));
         label_40->setText(QCoreApplication::translate("Qt_Communication_Tester", "Error info", nullptr));
+        VisionOK->setText(QCoreApplication::translate("Qt_Communication_Tester", "Vision OK", nullptr));
     } // retranslateUi
 
 };
@@ -473,4 +477,3 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_QT_COMMUNICATION_TESTER_H

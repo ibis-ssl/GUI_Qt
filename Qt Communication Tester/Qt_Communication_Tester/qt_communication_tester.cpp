@@ -49,6 +49,7 @@ Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     ui->setupUi(this);
     QObject::connect(&thread_time, SIGNAL(data_update(int)),this, SLOT(timer_callback(int)) );
     is_start=0;
+
     ai_cmd.allow_local_flags=0;
 
     installEventFilter(this);
@@ -86,6 +87,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
         return std::make_pair(byte_low, byte_high);
     };
 
+    ai_cmd.allow_local_flags=ui->VisionOK->isChecked();
 
     //kick value
     if(ui->chipEN->isChecked()>0){

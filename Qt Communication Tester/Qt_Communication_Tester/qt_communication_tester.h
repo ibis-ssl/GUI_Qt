@@ -55,6 +55,10 @@ private slots:
 
     void on_reset_theta_clicked();
 
+    void on_VisionOK_clicked();
+
+    void on_VisionOK_clicked(bool checked);
+
 protected:
     bool eventFilter(QObject *object, QEvent *event);
 
