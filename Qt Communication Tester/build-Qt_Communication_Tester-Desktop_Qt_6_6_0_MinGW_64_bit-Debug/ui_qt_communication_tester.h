@@ -1,11 +1,13 @@
-#pragma once
 /********************************************************************************
-** Form generated from reading UI file ''
+** Form generated from reading UI file 'qt_communication_tester.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
+
+#ifndef UI_QT_COMMUNICATION_TESTER_H
+#define UI_QT_COMMUNICATION_TESTER_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -226,7 +228,7 @@ public:
         vx = new QSlider(centralwidget);
         vx->setObjectName("vx");
         vx->setGeometry(QRect(590, 90, 151, 31));
-        vx->setMaximum(500);
+        vx->setMaximum(700);
         vx->setValue(50);
         vx->setOrientation(Qt::Horizontal);
         vx->setTickPosition(QSlider::TicksBelow);
@@ -251,7 +253,7 @@ public:
         vy = new QSlider(centralwidget);
         vy->setObjectName("vy");
         vy->setGeometry(QRect(590, 160, 151, 31));
-        vy->setMaximum(500);
+        vy->setMaximum(700);
         vy->setValue(50);
         vy->setOrientation(Qt::Horizontal);
         vy->setTickPosition(QSlider::TicksBelow);
@@ -403,7 +405,7 @@ public:
         label_40->setObjectName("label_40");
         label_40->setGeometry(QRect(120, 480, 51, 31));
         VisionOK = new QCheckBox(centralwidget);
-        VisionOK->setObjectName("localEN_2");
+        VisionOK->setObjectName("VisionOK");
         VisionOK->setEnabled(true);
         VisionOK->setGeometry(QRect(280, 60, 75, 20));
         Qt_Communication_Tester->setCentralWidget(centralwidget);
@@ -477,3 +479,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
+#endif // UI_QT_COMMUNICATION_TESTER_H
