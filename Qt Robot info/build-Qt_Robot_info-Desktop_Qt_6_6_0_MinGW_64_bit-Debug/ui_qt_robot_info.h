@@ -261,7 +261,7 @@ public:
         Qt_Robot_info->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Robot_info);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 732, 22));
+        menubar->setGeometry(QRect(0, 0, 732, 21));
         Qt_Robot_info->setMenuBar(menubar);
         statusbar = new QStatusBar(Qt_Robot_info);
         statusbar->setObjectName("statusbar");
