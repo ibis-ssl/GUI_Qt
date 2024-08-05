@@ -134,10 +134,10 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         data_convert.b[3]=rec_data[23];
         rx_data.data.error_info_data[0]=data_convert.f;
 
-        rx_data.data.motor_current[0]=rec_data[24];
-        rx_data.data.motor_current[1]=rec_data[25];
-        rx_data.data.motor_current[2]=rec_data[26];
-        rx_data.data.motor_current[3]=rec_data[27];
+        rx_data.data.motor_current[0]=rec_data[24]*10;
+        rx_data.data.motor_current[1]=rec_data[25]*10;
+        rx_data.data.motor_current[2]=rec_data[26]*10;
+        rx_data.data.motor_current[3]=rec_data[27]*10;
 
         char str_error0[6];
         sprintf(str_error0,"%d",rx_data.data.error_info[0]);
