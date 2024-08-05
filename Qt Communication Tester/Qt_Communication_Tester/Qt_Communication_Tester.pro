@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     qt_communication_tester.h \
+    robot_packet.h \
     thread_time.h
 
 FORMS += \

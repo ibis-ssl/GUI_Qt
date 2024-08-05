@@ -1,6 +1,7 @@
 #include "qt_communication_tester.h"
 #include "ui_qt_communication_tester.h"
 #include <string.h>
+#include <robot_packet.h>
 
 ai_cmd_t ai_cmd;
 int kick_EN=0;
@@ -8,73 +9,6 @@ int dribble_EN=0;
 uint8_t header=0x00;
 
 
-
-typedef struct
-{
-    uint8_t high;
-    uint8_t low;
-} TwoByte;
-
-
-inline TwoByte convertUInt16ToTwoByte(uint16_t val)
-{
-    TwoByte result;
-    result.high = (val & 0xFF00) >> 8;
-    result.low = val & 0x00FF;
-    return result;
-}
-
-typedef enum {
-    LOCAL_CAMERA_MODE = 0,
-    POSITION_TARGET_MODE = 1,
-    SIMPLE_VELOCITY_TARGET_MODE = 2,
-    VELOCITY_TARGET_WITH_TRAJECTORY_MODE = 3,
-} ControlMode;
-
-
-typedef struct
-{
-    float target_global_vel[2];
-} SimpleVelocityTargetModeArgs;
-
-typedef struct
-{
-    float target_global_pos[2];
-    float terminal_velocity;
-} PositionTargetModeArgs;
-
-typedef struct
-{
-    float ball_pos[2];
-    float ball_vel[2];
-    float target_global_vel[2];
-} LocalCameraModeArgs;
-
-
-typedef struct
-{
-    float target_global_vel[2];
-    float trajectory_global_origin[2];
-    float trajectory_origin_angle;
-    float trajectory_curvature;
-} VelocityTargetWithTrajectoryModeArgs;
-
-union {
-    LocalCameraModeArgs local_camera;
-    PositionTargetModeArgs position;
-    SimpleVelocityTargetModeArgs simple_velocity;
-    VelocityTargetWithTrajectoryModeArgs velocity;
-} mode_args;
-
-
-enum FlagAddress {
-    IS_VISION_AVAILABLE = 0,
-    ENABLE_CHIP = 1,
-    LIFT_DRIBBLER = 2,
-    STOP_EMERGENCY = 3,
-    PRIORITIZE_MOVE = 4,
-    PRIORITIZE_ACCURATE_ACCELERATION = 5,
-};
 
 #define TX_BUF_SIZE_ETHER (128)
 typedef union
