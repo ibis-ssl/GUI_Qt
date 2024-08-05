@@ -205,7 +205,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
 
     sendUdpSocket = new QUdpSocket(this);
     sendUdpSocket->bind(QHostAddress(address), 12345);
-    sendUdpSocket->writeDatagram(send_packet,32,QHostAddress(address), 12345);
+    sendUdpSocket->writeDatagram(send_packet,64,QHostAddress(address), 12345);
     sendUdpSocket->close();
 
 }
