@@ -43,10 +43,6 @@ private slots:
 
     void on_dribble_power_valueChanged(int value);
 
-    void on_keeperEN_stateChanged(int arg1);
-
-    void on_localEN_stateChanged(int arg1);
-
     void on_target_theta_valueChanged(int value);
 
     void on_vx_valueChanged(int value);

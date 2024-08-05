@@ -5,6 +5,76 @@
 ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
+uint8_t header=0x00;
+
+
+
+typedef struct
+{
+    uint8_t high;
+    uint8_t low;
+} TwoByte;
+
+
+inline TwoByte convertUInt16ToTwoByte(uint16_t val)
+{
+    TwoByte result;
+    result.high = (val & 0xFF00) >> 8;
+    result.low = val & 0x00FF;
+    return result;
+}
+
+typedef enum {
+    LOCAL_CAMERA_MODE = 0,
+    POSITION_TARGET_MODE = 1,
+    SIMPLE_VELOCITY_TARGET_MODE = 2,
+    VELOCITY_TARGET_WITH_TRAJECTORY_MODE = 3,
+} ControlMode;
+
+
+typedef struct
+{
+    float target_global_vel[2];
+} SimpleVelocityTargetModeArgs;
+
+typedef struct
+{
+    float target_global_pos[2];
+    float terminal_velocity;
+} PositionTargetModeArgs;
+
+typedef struct
+{
+    float ball_pos[2];
+    float ball_vel[2];
+    float target_global_vel[2];
+} LocalCameraModeArgs;
+
+
+typedef struct
+{
+    float target_global_vel[2];
+    float trajectory_global_origin[2];
+    float trajectory_origin_angle;
+    float trajectory_curvature;
+} VelocityTargetWithTrajectoryModeArgs;
+
+union {
+    LocalCameraModeArgs local_camera;
+    PositionTargetModeArgs position;
+    SimpleVelocityTargetModeArgs simple_velocity;
+    VelocityTargetWithTrajectoryModeArgs velocity;
+} mode_args;
+
+
+enum FlagAddress {
+    IS_VISION_AVAILABLE = 0,
+    ENABLE_CHIP = 1,
+    LIFT_DRIBBLER = 2,
+    STOP_EMERGENCY = 3,
+    PRIORITIZE_MOVE = 4,
+    PRIORITIZE_ACCURATE_ACCELERATION = 5,
+};
 
 #define TX_BUF_SIZE_ETHER (128)
 typedef union
@@ -26,6 +96,13 @@ typedef union
 
         float_t yaw_angle, diff_angle;
         float_t odom[2], odom_speed[2], mouse_raw[2], voltage[2];
+
+        bool is_vision_available;
+        bool enable_chip;
+        bool lift_dribbler;
+        bool stop_emergency;
+        bool prioritize_move;
+        bool prioritize_accurate_acceleration;
     } data;
 } tx_msg_t;
 
@@ -80,30 +157,18 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
 
 
     auto to_two_byte = [](float val, float range) -> std::pair<uint8_t, uint8_t> {
-        uint16_t two_byte = static_cast<int>(32767 * static_cast<float>(val / range) + 32767);
+        uint16_t two_byte = (uint16_t)(32767.f * (float)(val / range) + 32767.f);
         uint8_t byte_low, byte_high;
         byte_low = two_byte & 0x00FF;
         byte_high = (two_byte & 0xFF00) >> 8;
         return std::make_pair(byte_low, byte_high);
     };
 
-    ai_cmd.allow_local_flags=ui->VisionOK->isChecked();
+
 
     //kick value
-    if(ui->chipEN->isChecked()>0){
-        ai_cmd.chip_en= 1;
-    }
-    else{
-        ai_cmd.chip_en= 0;
-    }
-
     if(ui->kick_EN->isChecked()>0){
-        if(ai_cmd.chip_en==1){
-            ai_cmd.kick_power= 100+ui->kick_power->value();
-        }
-        else{
             ai_cmd.kick_power= ui->kick_power->value();
-        }
     }
     else{
         ai_cmd.kick_power= 0;
@@ -118,18 +183,45 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     }
 
 
+    uint8_t flags = 0x00;
+    flags |= (ui->VisionOK->isChecked() << IS_VISION_AVAILABLE);
+    flags |= (ui->chipEN->isChecked() << ENABLE_CHIP);
+    flags |= (ui->LIFT_DRIBBLER->isChecked() << LIFT_DRIBBLER);
+    flags |= (ui->STOP_EMERGENCY->isChecked() << STOP_EMERGENCY);
+    flags |= (ui->PRIORITIZE_MOVE->isChecked() << PRIORITIZE_MOVE);
+    flags |= (ui->PRIORITIZE_ACCURATE_ACCELERATION->isChecked() << PRIORITIZE_ACCURATE_ACCELERATION);
+    uint8_t FLAGS;
+    FLAGS = flags;
+
+
     ai_cmd.target_theta=(float)(ui->target_theta->value()-180.0)*(-1.0)*M_PI/180.0;
 
     // -pi ~ pi -> 0 ~ 32767 ~ 65534
     auto [target_theta_low, target_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
-    auto [vel_surge_low, vel_surge_high] = to_two_byte(ai_cmd.local_target_speed[0], 7.0);
-    auto [vel_sway_low, vel_sway_high] = to_two_byte(ai_cmd.local_target_speed[1], 7.0);
+    //auto [vel_surge_low, vel_surge_high] = to_two_byte(ai_cmd.local_target_speed[0], 7.0);
+    //auto [vel_sway_low, vel_sway_high] = to_two_byte(ai_cmd.local_target_speed[1], 7.0);
+    auto [vision_x_low, vision_x_high] = to_two_byte(ai_cmd.local_target_speed[0], 32.767);
+    auto [vision_y_low, vision_y_high] = to_two_byte(ai_cmd.local_target_speed[1], 32.767);
+    auto [vision_theta_low, vision_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
+    auto [SPEED_LIMIT_LOW, SPEED_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
+    auto [OMEGA_LIMIT_LOW, OMEGA_LIMIT_HIGH] = to_two_byte(10.0, 32.767);
+    TwoByte latency_time = convertUInt16ToTwoByte(100.0);
+    uint8_t LATENCY_TIME_MS_HIGH, LATENCY_TIME_MS_LOW;
+    LATENCY_TIME_MS_HIGH=static_cast<uint8_t>(latency_time.high);
+    LATENCY_TIME_MS_LOW=static_cast<uint8_t>(latency_time.low);
+    TwoByte elapsed_time = convertUInt16ToTwoByte(20.0);
+    uint8_t ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH, ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW;
+    ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH=static_cast<uint8_t>(elapsed_time.high);
+    ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW =static_cast<uint8_t>(elapsed_time.low);
+    uint8_t CONTROL_MODE;
+    CONTROL_MODE=SIMPLE_VELOCITY_TARGET_MODE;
+    //CONTROL_MODE_ARGS=mode_args.simple_velocity;
 
     orionIP = ui->setIP->value();
     char str[100];
     sprintf(str,"ID=%d check=%3d Vx=%.3f Vy=%.3f theta=%.3f kick=%.2f chip=%d Dri=%.2f local_flags =%d",
             orionIP-100, time_counter,ai_cmd.local_target_speed[0],ai_cmd.local_target_speed[1],ai_cmd.target_theta,
-            ai_cmd.kick_power,ai_cmd.chip_en,ai_cmd.drible_power,(uint8_t)ai_cmd.allow_local_flags);
+            ai_cmd.kick_power,ai_cmd.chip_en,ai_cmd.drible_power,(uint8_t)flags);
     ui->setdata->setText(str);
 
 
@@ -137,38 +229,43 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     send_packet.resize(64);
     send_packet.fill(0,64);
 
-    send_packet[0] = static_cast<uint8_t>(time_counter);
-    send_packet[1] = static_cast<uint8_t>(vel_surge_high);
-    send_packet[2] = static_cast<uint8_t>(vel_surge_low);
-    send_packet[3] = static_cast<uint8_t>(vel_sway_high);
-    send_packet[4] = static_cast<uint8_t>(vel_sway_low);
-    send_packet[5] = static_cast<uint8_t>(target_theta_high);
-    send_packet[6] = static_cast<uint8_t>(target_theta_low);
-    send_packet[7] = static_cast<uint8_t>(target_theta_high);
-    send_packet[8] = static_cast<uint8_t>(target_theta_low);
-    send_packet[9] = static_cast<uint8_t>(ai_cmd.kick_power);
-    send_packet[10] = static_cast<uint8_t>(ai_cmd.drible_power);
-    send_packet[11] = static_cast<uint8_t>(ai_cmd.allow_local_flags);
-    //send_packet[12] = static_cast<uint8_t>(ball_x_high);
-    //send_packet[13] = static_cast<uint8_t>(ball_x_low);
-    //send_packet[14] = static_cast<uint8_t>(ball_y_high);
-    //send_packet[15] = static_cast<uint8_t>(ball_y_low);
-    //send_packet[16] = static_cast<uint8_t>(vision_x_high);
-    //send_packet[17] = static_cast<uint8_t>(vision_x_low);
-    //send_packet[18] = static_cast<uint8_t>(vision_y_high);
-    //send_packet[19] = static_cast<uint8_t>(vision_y_low);
-    //send_packet[20] = static_cast<uint8_t>(target_x_high);
-    //send_packet[21] = static_cast<uint8_t>(target_x_low);
-    //send_packet[22] = static_cast<uint8_t>(target_y_high);
-    //send_packet[23] = static_cast<uint8_t>(target_y_low);
+    header=0x00;
+
+    send_packet[0] = static_cast<uint8_t>(header);
+    send_packet[1] = static_cast<uint8_t>(time_counter);
+    send_packet[2] = static_cast<uint8_t>(vision_x_high);
+    send_packet[3] = static_cast<uint8_t>(vision_x_low);
+    send_packet[4] = static_cast<uint8_t>(vision_y_high);
+    send_packet[5] = static_cast<uint8_t>(vision_y_low);
+    send_packet[6] = static_cast<uint8_t>(vision_theta_high);
+    send_packet[7] = static_cast<uint8_t>(vision_theta_low);
+    send_packet[8] = static_cast<uint8_t>(target_theta_high);
+    send_packet[9] = static_cast<uint8_t>(target_theta_low);
+    send_packet[10] = static_cast<uint8_t>(ai_cmd.kick_power);
+    send_packet[11] = static_cast<uint8_t>(ai_cmd.drible_power);
+    send_packet[12] = static_cast<uint8_t>(SPEED_LIMIT_HIGH);
+    send_packet[13] = static_cast<uint8_t>(SPEED_LIMIT_LOW);
+    send_packet[14] = static_cast<uint8_t>(OMEGA_LIMIT_HIGH);
+    send_packet[15] = static_cast<uint8_t>(OMEGA_LIMIT_LOW);
+    send_packet[16] = static_cast<uint8_t>(LATENCY_TIME_MS_HIGH);
+    send_packet[17] = static_cast<uint8_t>(LATENCY_TIME_MS_LOW);
+    send_packet[18] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH);
+    send_packet[19] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW);
+    send_packet[20] = static_cast<uint8_t>(FLAGS);
+    send_packet[21] = static_cast<uint8_t>(CONTROL_MODE);
+    send_packet[22] = static_cast<uint8_t>(vision_x_high);
+    send_packet[23] = static_cast<uint8_t>(vision_x_low);
+    send_packet[24] = static_cast<uint8_t>(vision_y_high);
+    send_packet[25] = static_cast<uint8_t>(vision_y_low);
+
 
 
     char str2[400];
-    sprintf(str2,"ID=%3d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d [11]=%3d [12]=%3d [13]=%3d [14]=%3d [15]=%3d [16]=%3d [17]=%3d [18]=%3d [19]=%3d [20]=%3d [21]=%3d [22]=%3d [23]=%3d",
+    sprintf(str2,"ID=%3d [0]=%3d [1]=%3d [2]=%3d [3]=%3d [4]=%3d [5]=%3d [6]=%3d [7]=%3d [8]=%3d [9]=%3d [10]=%3d [11]=%3d [12]=%3d [13]=%3d [14]=%3d [15]=%3d [16]=%3d [17]=%3d [18]=%3d [19]=%3d [20]=%3d [21]=%3d [22]=%3d [23]=%3d [24]=%3d [25]=%3d",
             orionIP-100,(uint8_t)send_packet[0],(uint8_t)send_packet[1],(uint8_t)send_packet[2],(uint8_t)send_packet[3],(uint8_t)send_packet[4],(uint8_t)send_packet[5],(uint8_t)send_packet[6]
             ,(uint8_t)send_packet[7],(uint8_t)send_packet[8],(uint8_t)send_packet[9],(uint8_t)send_packet[10],(uint8_t)send_packet[11],(uint8_t)send_packet[12],(uint8_t)send_packet[13]
             ,(uint8_t)send_packet[14],(uint8_t)send_packet[15],(uint8_t)send_packet[16],(uint8_t)send_packet[17],(uint8_t)send_packet[18],(uint8_t)send_packet[19]
-            ,(uint8_t)send_packet[20],(uint8_t)send_packet[21],(uint8_t)send_packet[22],(uint8_t)send_packet[23]);
+            ,(uint8_t)send_packet[20],(uint8_t)send_packet[21],(uint8_t)send_packet[22],(uint8_t)send_packet[23],(uint8_t)send_packet[24],(uint8_t)send_packet[25]);
     ui->sendingdata->setText(str2);
     QString address = "192.168.20." +  QString::number(orionIP);
 
@@ -488,32 +585,6 @@ void Qt_Communication_Tester::on_dribble_power_valueChanged(int value)
 }
 
 
-
-
-void Qt_Communication_Tester::on_keeperEN_stateChanged(int arg1)
-{
-    if(arg1 > 0){
-        ai_cmd.allow_local_flags |=  (0b00000010);
-    }
-    else{
-        ai_cmd.allow_local_flags ^= (0b00000010);
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_localEN_stateChanged(int arg1)
-{
-    //loacl flags
-    if(arg1 > 0){
-        ai_cmd.allow_local_flags |= (0b00001000);
-    }
-    else{
-        ai_cmd.allow_local_flags ^= (0b00001000);
-    }
-
-
-}
 
 
 void Qt_Communication_Tester::on_target_theta_valueChanged(int value)

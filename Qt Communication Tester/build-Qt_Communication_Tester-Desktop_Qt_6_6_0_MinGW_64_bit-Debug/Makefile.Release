@@ -307,6 +307,9 @@ release/moc_qt_communication_tester.cpp: ../Qt_Communication_Tester/qt_communica
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/QNetworkInterface \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/qnetworkinterface.h \
 		release/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
 	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/okada/Documents/Github/GUI_Qt/Qt Communication Tester/build-Qt_Communication_Tester-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -I"C:/Users/okada/Documents/Github/GUI_Qt/Qt Communication Tester/Qt_Communication_Tester" -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtWidgets -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Qt_Communication_Tester\qt_communication_tester.h -o release\moc_qt_communication_tester.cpp
@@ -635,6 +638,9 @@ release/main.o: ../Qt_Communication_Tester/main.cpp ../Qt_Communication_Tester/q
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/QNetworkInterface \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/qnetworkinterface.h \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -849,6 +855,9 @@ release/qt_communication_tester.o: ../Qt_Communication_Tester/qt_communication_t
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qfiledevice.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/QKeyEvent \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/QNetworkInterface \
+		C:/Qt/6.6.0/mingw_64/include/QtNetwork/qnetworkinterface.h \
 		ui_qt_communication_tester.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QApplication \
