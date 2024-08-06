@@ -191,24 +191,59 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str_temp0[6];
         sprintf(str_temp0,"%d",rx_data.data.temperature[0]);
         ui->show_temp0->setText(str_temp0);
+            if(rx_data.data.temperature[0]>80){ui->show_temp0->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[0]>60){ui->show_temp0->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[0]>40){ui->show_temp0->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp0->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp1[6];
         sprintf(str_temp1,"%d",rx_data.data.temperature[1]);
         ui->show_temp1->setText(str_temp1);
+            if(rx_data.data.temperature[1]>80){ui->show_temp1->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[1]>60){ui->show_temp1->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[1]>40){ui->show_temp1->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp1->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp2[6];
         sprintf(str_temp2,"%d",rx_data.data.temperature[2]);
         ui->show_temp2->setText(str_temp2);
+            if(rx_data.data.temperature[2]>80){ui->show_temp2->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[2]>60){ui->show_temp2->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[2]>40){ui->show_temp2->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp2->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp3[6];
         sprintf(str_temp3,"%d",rx_data.data.temperature[3]);
         ui->show_temp3->setText(str_temp3);
+            if(rx_data.data.temperature[3]>80){ui->show_temp3->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[3]>60){ui->show_temp3->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[3]>40){ui->show_temp3->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp3->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp4[6];
         sprintf(str_temp4,"%d",rx_data.data.temperature[4]);
         ui->show_temp4->setText(str_temp4);
+            if(rx_data.data.temperature[4]>80){ui->show_temp4->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[4]>60){ui->show_temp4->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[4]>40){ui->show_temp4->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp4->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp5[6];
         sprintf(str_temp5,"%d",rx_data.data.temperature[5]);
         ui->show_temp5->setText(str_temp5);
+        if(rx_data.data.temperature[5]>80){ui->show_temp5->setTextColor(QColor(255, 0,  0, 255));}
+        else if(rx_data.data.temperature[5]>60){ui->show_temp5->setTextColor(QColor(255, 103, 0, 255));}
+        else if(rx_data.data.temperature[5]>40){ui->show_temp5->setTextColor(QColor(0, 255, 65, 255));}
+        else{ui->show_temp5->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_temp6[6];
         sprintf(str_temp6,"%d",rx_data.data.temperature[6]);
         ui->show_temp6->setText(str_temp6);
+            if(rx_data.data.temperature[6]>80){ui->show_temp6->setTextColor(QColor(255, 0,  0, 255));}
+            else if(rx_data.data.temperature[6]>60){ui->show_temp6->setTextColor(QColor(255, 103, 0, 255));}
+            else if(rx_data.data.temperature[6]>40){ui->show_temp6->setTextColor(QColor(0, 255, 65, 255));}
+            else{ui->show_temp6->setTextColor(QColor(0, 0, 0, 255));}
+
         char str_diff[6];
         sprintf(str_diff,"%4.2f",rx_data.data.diff_angle);
         ui->show_robot_theta_diff->setText(str_diff);

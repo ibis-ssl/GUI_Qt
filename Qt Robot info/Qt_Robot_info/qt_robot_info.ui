@@ -65,6 +65,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>false</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="show_temp3">
     <property name="geometry">
@@ -75,6 +80,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="show_temp4">
     <property name="geometry">
@@ -84,6 +94,11 @@
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="label_17">
@@ -295,6 +310,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="show_ball1">
     <property name="geometry">
@@ -348,6 +368,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="show_temp1">
     <property name="geometry">
@@ -357,6 +382,11 @@
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="label_24">
@@ -430,6 +460,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
    </widget>
    <widget class="QTextBrowser" name="show_temp6">
     <property name="geometry">
@@ -439,6 +474,11 @@
       <width>41</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="label_34">
