@@ -1,10 +1,23 @@
 #include "qt_robot_info.h"
 #include "ui_qt_robot_info.h"
 #include <string.h>
+#include "stdlib.h"
 
 ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
+
+uint16_t tempdata[5];
+uint16_t sortdata[5];
+uint16_t out_lowpass;
+uint32_t count;
+uint16_t medianfilter_out;
+uint16_t out_lowpass_temp;
+int int_sort( const void *p, const void *q ) {
+    return *(uint16_t*)p - *(uint16_t*)q;
+}
+#define data_cnt  sizeof(sortdata)/sizeof(uint16_t)
+#define rate 0.2
 
 #define TX_BUF_SIZE_ETHER (128)
 typedef union
@@ -120,13 +133,30 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         sprintf(str5,"%d",rx_data.data.kick_state);
         ui->show_kickstate->setText(str5);
 
-        float robot_voltage_rate;
-        if(rx_data.data.voltage[0]>=26){robot_voltage_rate=100.0;}
-        else if(rx_data.data.voltage[0]<=22){robot_voltage_rate=0.0;}
+        float robot_voltage_rate[10];
+        if(rx_data.data.voltage[0]>=26){robot_voltage_rate[count]=100.0;}
+        else if(rx_data.data.voltage[0]<=22){robot_voltage_rate[count]=0.0;}
         else{
-            robot_voltage_rate=100.0/4.0*((float)rx_data.data.voltage[0]-22.0);
+            robot_voltage_rate[count]=100.0/4.0*((float)rx_data.data.voltage[0]-22.0);      }
+
+
+        for(uint8_t i=0;i<5;i++){
+            sortdata[i]=robot_voltage_rate[i];
         }
-        ui->Robot_Voltage->setValue((int)robot_voltage_rate);
+        qsort(sortdata,data_cnt,2,int_sort);
+        medianfilter_out=robot_voltage_rate[2];
+        out_lowpass=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
+        out_lowpass_temp=out_lowpass;
+
+        ui->Robot_Voltage->setValue((int)out_lowpass);
+
+
+        if(count>=4){
+            count=0;
+        }
+        else{
+            count++;
+        }
 
 
         data_convert16.c[0]=rec_data[16];
