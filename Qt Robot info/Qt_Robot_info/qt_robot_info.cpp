@@ -19,7 +19,7 @@ int int_sort( const void *p, const void *q ) {
     return *(float *)p - *(float *)q;
 }
 #define data_cnt  sizeof(sortdata)/sizeof(float)
-#define rate 0.01
+#define rate 0.005
 
 #define TX_BUF_SIZE_ETHER (128)
 typedef union
