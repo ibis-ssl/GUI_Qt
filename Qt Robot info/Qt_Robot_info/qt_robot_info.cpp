@@ -10,7 +10,8 @@ int dribble_EN=0;
 float  tempdata[5];
 float  sortdata[5];
 float  robot_voltage_rate[10];
-float  out_lowpass;
+float  out_lowpass[5];
+float out_data;
 uint8_t count;
 float  medianfilter_out;
 float  out_lowpass_temp;
@@ -145,10 +146,15 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         }
         qsort(sortdata,data_cnt,2,int_sort);
         medianfilter_out=robot_voltage_rate[2];
-        out_lowpass=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
-        out_lowpass_temp=out_lowpass;
+        out_lowpass[count]=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
+        out_lowpass_temp=out_lowpass[count];
 
-        ui->Robot_Voltage->setValue((int)out_lowpass);
+        for(int i=0;i<5;i++){
+            out_data+=out_lowpass[i];
+        }
+        out_data=out_data/4.0;
+
+        ui->Robot_Voltage->setValue((int)out_data);
 
         if(count>=4){
             count=0;
