@@ -135,8 +135,8 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         sprintf(str5,"%d",rx_data.data.kick_state);
         ui->show_kickstate->setText(str5);
 
-        if(rx_data.data.voltage[0]>26.1){robot_voltage_rate[count]=100.0;}
-        else if(rx_data.data.voltage[0]<22){robot_voltage_rate[count]=0.0;}
+        if(rx_data.data.voltage[0]>=26.1){robot_voltage_rate[count]=100.0;}
+        else if(rx_data.data.voltage[0]<=22){robot_voltage_rate[count]=0.0;}
         else{
             robot_voltage_rate[count]=100.0/4.1*((float)rx_data.data.voltage[0]-22.0);      }
 
@@ -148,6 +148,9 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         medianfilter_out=robot_voltage_rate[2];
         out_data=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
         out_lowpass_temp=out_data;
+
+        if(rx_data.data.voltage[0]>=26.1){out_data=100.0;}
+        else if(rx_data.data.voltage[0]<=22){out_data=0.0;}
 
         ui->Robot_Voltage->setValue((int)out_data);
 
