@@ -146,13 +146,8 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         }
         qsort(sortdata,data_cnt,2,int_sort);
         medianfilter_out=robot_voltage_rate[2];
-        out_lowpass[count]=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
-        out_lowpass_temp=out_lowpass[count];
-
-        for(int i=0;i<5;i++){
-            out_data+=out_lowpass[i];
-        }
-        out_data=out_data/5.0;
+        out_data=(float)((float)rate*medianfilter_out+(float)(1-rate)*out_lowpass_temp);
+        out_lowpass_temp=out_data;
 
         ui->Robot_Voltage->setValue((int)out_data);
 
