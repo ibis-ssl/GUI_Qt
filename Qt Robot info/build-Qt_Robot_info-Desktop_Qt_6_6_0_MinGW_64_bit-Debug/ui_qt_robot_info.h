@@ -91,6 +91,10 @@ public:
         if (Qt_Robot_info->objectName().isEmpty())
             Qt_Robot_info->setObjectName("Qt_Robot_info");
         Qt_Robot_info->resize(714, 309);
+        Qt_Robot_info->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        Qt_Robot_info->setAnimated(true);
+        Qt_Robot_info->setDocumentMode(false);
+        Qt_Robot_info->setDockNestingEnabled(false);
         centralwidget = new QWidget(Qt_Robot_info);
         centralwidget->setObjectName("centralwidget");
         show_speedy = new QTextBrowser(centralwidget);
@@ -101,7 +105,7 @@ public:
         show_ball3->setGeometry(QRect(300, 250, 41, 31));
         show_connection = new QTextBrowser(centralwidget);
         show_connection->setObjectName("show_connection");
-        show_connection->setGeometry(QRect(650, 10, 61, 31));
+        show_connection->setGeometry(QRect(650, 10, 51, 31));
         show_ball0 = new QTextBrowser(centralwidget);
         show_ball0->setObjectName("show_ball0");
         show_ball0->setGeometry(QRect(150, 250, 41, 31));
@@ -265,6 +269,9 @@ public:
         Robot_Voltage->setGeometry(QRect(470, 10, 111, 31));
         Robot_Voltage->setValue(75);
         Robot_Voltage->setTextVisible(true);
+        Robot_Voltage->setOrientation(Qt::Horizontal);
+        Robot_Voltage->setInvertedAppearance(false);
+        Robot_Voltage->setTextDirection(QProgressBar::TopToBottom);
         Qt_Robot_info->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Robot_info);
         menubar->setObjectName("menubar");
