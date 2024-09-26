@@ -137,8 +137,9 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     auto [vision_x_low, vision_x_high] = to_two_byte(ai_cmd.local_target_speed[0], 32.767);
     auto [vision_y_low, vision_y_high] = to_two_byte(ai_cmd.local_target_speed[1], 32.767);
     auto [vision_theta_low, vision_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
-    auto [SPEED_LIMIT_LOW, SPEED_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
-    auto [OMEGA_LIMIT_LOW, OMEGA_LIMIT_HIGH] = to_two_byte(10.0, 32.767);
+    auto [LINEAR_VELOCITY_LIMIT_LOW, LINEAR_VELOCITY_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
+    auto [ANGULAR_VELOCITY_LIMIT_LOW, ANGULAR_VELOCITY_LIMIT_HIGH] = to_two_byte(10.0, 32.767);
+    auto [ACCELERATION_LIMIT_LOW, ACCELERATION_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
     TwoByte latency_time = convertUInt16ToTwoByte(100.0);
     uint8_t LATENCY_TIME_MS_HIGH, LATENCY_TIME_MS_LOW;
     LATENCY_TIME_MS_HIGH=static_cast<uint8_t>(latency_time.high);
@@ -177,20 +178,22 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     send_packet[9] = static_cast<uint8_t>(target_theta_low);
     send_packet[10] = static_cast<uint8_t>(ai_cmd.kick_power);
     send_packet[11] = static_cast<uint8_t>(ai_cmd.drible_power);
-    send_packet[12] = static_cast<uint8_t>(SPEED_LIMIT_HIGH);
-    send_packet[13] = static_cast<uint8_t>(SPEED_LIMIT_LOW);
-    send_packet[14] = static_cast<uint8_t>(OMEGA_LIMIT_HIGH);
-    send_packet[15] = static_cast<uint8_t>(OMEGA_LIMIT_LOW);
-    send_packet[16] = static_cast<uint8_t>(LATENCY_TIME_MS_HIGH);
-    send_packet[17] = static_cast<uint8_t>(LATENCY_TIME_MS_LOW);
-    send_packet[18] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH);
-    send_packet[19] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW);
-    send_packet[20] = static_cast<uint8_t>(FLAGS);
-    send_packet[21] = static_cast<uint8_t>(CONTROL_MODE);
-    send_packet[22] = static_cast<uint8_t>(vision_x_high);
-    send_packet[23] = static_cast<uint8_t>(vision_x_low);
-    send_packet[24] = static_cast<uint8_t>(vision_y_high);
-    send_packet[25] = static_cast<uint8_t>(vision_y_low);
+    send_packet[12] = static_cast<uint8_t>(ACCELERATION_LIMIT_HIGH);
+    send_packet[13] = static_cast<uint8_t>(ACCELERATION_LIMIT_LOW);
+    send_packet[14] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_HIGH);
+    send_packet[15] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_LOW);
+    send_packet[16] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_HIGH);
+    send_packet[17] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_LOW);
+    send_packet[18] = static_cast<uint8_t>(LATENCY_TIME_MS_HIGH);
+    send_packet[19] = static_cast<uint8_t>(LATENCY_TIME_MS_LOW);
+    send_packet[20] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH);
+    send_packet[21] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW);
+    send_packet[22] = static_cast<uint8_t>(FLAGS);
+    send_packet[23] = static_cast<uint8_t>(CONTROL_MODE);
+    send_packet[24] = static_cast<uint8_t>(vision_x_high);
+    send_packet[25] = static_cast<uint8_t>(vision_x_low);
+    send_packet[26] = static_cast<uint8_t>(vision_y_high);
+    send_packet[27] = static_cast<uint8_t>(vision_y_low);
 
 
 
