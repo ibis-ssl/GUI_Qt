@@ -14,7 +14,7 @@
    <string>Qt_Robot_info</string>
   </property>
   <property name="toolButtonStyle">
-   <enum>Qt::ToolButtonIconOnly</enum>
+   <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -629,11 +629,17 @@
    <widget class="QSpinBox" name="setIP">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>210</x>
       <y>0</y>
       <width>51</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::WheelFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ContextMenuPolicy::DefaultContextMenu</enum>
     </property>
     <property name="minimum">
      <number>100</number>
@@ -647,7 +653,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>111</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -658,7 +664,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>100</x>
       <y>0</y>
       <width>111</width>
       <height>31</height>
@@ -710,13 +716,13 @@
      <bool>true</bool>
     </property>
     <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+     <enum>Qt::Orientation::Horizontal</enum>
     </property>
     <property name="invertedAppearance">
      <bool>false</bool>
     </property>
     <property name="textDirection">
-     <enum>QProgressBar::TopToBottom</enum>
+     <enum>QProgressBar::Direction::TopToBottom</enum>
     </property>
    </widget>
   </widget>
