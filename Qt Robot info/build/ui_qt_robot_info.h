@@ -281,6 +281,11 @@ public:
         Robot_Voltage = new QProgressBar(centralwidget);
         Robot_Voltage->setObjectName("Robot_Voltage");
         Robot_Voltage->setGeometry(QRect(470, 0, 111, 31));
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Robot_Voltage->sizePolicy().hasHeightForWidth());
+        Robot_Voltage->setSizePolicy(sizePolicy);
         Robot_Voltage->setValue(75);
         Robot_Voltage->setTextVisible(true);
         Robot_Voltage->setOrientation(Qt::Orientation::Horizontal);
