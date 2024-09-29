@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qt_robot_info.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.2)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,16 +9,19 @@
 #include "../../Qt_Robot_info/qt_robot_info.h"
 #include <QtCore/qmetatype.h>
 
+#if __has_include(<QtCore/qtmochelpers.h>)
 #include <QtCore/qtmochelpers.h>
+#else
+QT_BEGIN_MOC_NAMESPACE
+#endif
+
 
 #include <memory>
 
-
-#include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'qt_robot_info.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.7.2. It"
+#error "This file was generated using the moc from 6.6.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -41,9 +44,33 @@ constexpr auto qt_meta_stringdata_CLASSQt_Robot_infoENDCLASS = QtMocHelpers::str
     "on_setIP_textChanged",
     "arg1"
 );
-#else  // !QT_MOC_HAS_STRINGDATA
-#error "qtmochelpers.h not found or too old."
-#endif // !QT_MOC_HAS_STRINGDATA
+#else  // !QT_MOC_HAS_STRING_DATA
+struct qt_meta_stringdata_CLASSQt_Robot_infoENDCLASS_t {
+    uint offsetsAndSizes[10];
+    char stringdata0[14];
+    char stringdata1[23];
+    char stringdata2[1];
+    char stringdata3[21];
+    char stringdata4[5];
+};
+#define QT_MOC_LITERAL(ofs, len) \
+    uint(sizeof(qt_meta_stringdata_CLASSQt_Robot_infoENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSQt_Robot_infoENDCLASS_t qt_meta_stringdata_CLASSQt_Robot_infoENDCLASS = {
+    {
+        QT_MOC_LITERAL(0, 13),  // "Qt_Robot_info"
+        QT_MOC_LITERAL(14, 22),  // "on_startbotton_clicked"
+        QT_MOC_LITERAL(37, 0),  // ""
+        QT_MOC_LITERAL(38, 20),  // "on_setIP_textChanged"
+        QT_MOC_LITERAL(59, 4)   // "arg1"
+    },
+    "Qt_Robot_info",
+    "on_startbotton_clicked",
+    "",
+    "on_setIP_textChanged",
+    "arg1"
+};
+#undef QT_MOC_LITERAL
+#endif // !QT_MOC_HAS_STRING_DATA
 } // unnamed namespace
 
 Q_CONSTINIT static const uint qt_meta_data_CLASSQt_Robot_infoENDCLASS[] = {
