@@ -200,6 +200,12 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         char str_current3[6];
         sprintf(str_current3,"%d",rx_data.data.motor_current[3]);
         ui->show_current3->setText(str_current3);
+        char str_current4[100];
+
+        if(rx_data.data.error_info[0]!=0){
+            sprintf(str_current4,"Error ID:%d info:%d, data:%4.2f",rx_data.data.error_info[0],rx_data.data.error_info[1],rx_data.data.error_info_data[0]);
+            ui->log->append(str_current4);
+        }
 
 
         rx_data.data.ball_detection[3]=rec_data[28];
