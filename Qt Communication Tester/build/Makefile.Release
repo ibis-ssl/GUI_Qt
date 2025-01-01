@@ -19,7 +19,7 @@ CXXFLAGS      = -fno-keep-inline-dllexport -O2 -std=gnu++1z -Wall -Wextra -Wextr
 INCPATH       = -I../Qt_Communication_Tester -I. -IC:/Qt/6.6.3/mingw_64/include -IC:/Qt/6.6.3/mingw_64/include/QtWidgets -IC:/Qt/6.6.3/mingw_64/include/QtGui -IC:/Qt/6.6.3/mingw_64/include/QtNetwork -IC:/Qt/6.6.3/mingw_64/include/QtCore -Irelease -I. -I/include -IC:/Qt/6.6.3/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        C:\Qt\6.6.3\mingw_64\lib\libQt6Widgets.a C:\Qt\6.6.3\mingw_64\lib\libQt6Gui.a C:\Qt\6.6.3\mingw_64\lib\libQt6Network.a C:\Qt\6.6.3\mingw_64\lib\libQt6Core.a -lmingw32 C:\Qt\6.6.3\mingw_64\lib\libQt6EntryPoint.a -lshell32  
+LIBS        =        C:\Qt\6.6.3\mingw_64\lib\libQt6Widgets.a C:\Qt\6.6.3\mingw_64\lib\libQt6Gui.a C:\Qt\6.6.3\mingw_64\lib\libQt6Network.a C:\Qt\6.6.3\mingw_64\lib\libQt6Core.a release\Qt_Communication_Tester_resource_res.o -lmingw32 C:\Qt\6.6.3\mingw_64\lib\libQt6EntryPoint.a -lshell32  
 QMAKE         = C:\Qt\6.6.3\mingw_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -40,7 +40,7 @@ IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release\Qt_Communication_Tester_resource_res.o
 SED           = $(QMAKE) -install sed
 MOVE          = move
 
@@ -75,8 +75,11 @@ DESTDIR_TARGET = release\Qt_Communication_Tester.exe
 first: all
 all: Makefile.Release  release/Qt_Communication_Tester.exe
 
-release/Qt_Communication_Tester.exe: C:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a C:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a C:/Qt/6.6.3/mingw_64/lib/libQt6Network.a C:/Qt/6.6.3/mingw_64/lib/libQt6Core.a C:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a ui_qt_communication_tester.h $(OBJECTS) 
+release/Qt_Communication_Tester.exe: C:/Qt/6.6.3/mingw_64/lib/libQt6Widgets.a C:/Qt/6.6.3/mingw_64/lib/libQt6Gui.a C:/Qt/6.6.3/mingw_64/lib/libQt6Network.a C:/Qt/6.6.3/mingw_64/lib/libQt6Core.a C:/Qt/6.6.3/mingw_64/lib/libQt6EntryPoint.a ui_qt_communication_tester.h $(OBJECTS) release/Qt_Communication_Tester_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS) $(LIBS)
+
+release/Qt_Communication_Tester_resource_res.o: Qt_Communication_Tester_resource.rc
+	windres -i Qt_Communication_Tester_resource.rc -o release\Qt_Communication_Tester_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Release ..\Qt_Communication_Tester\Qt_Communication_Tester.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -88,6 +91,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release\main.o release\qt_communication_tester.o release\thread_time.o release\moc_qt_communication_tester.o release\moc_thread_time.o
+	-$(DEL_FILE) release\Qt_Communication_Tester_resource_res.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -860,6 +864,59 @@ release/qt_communication_tester.o: ../Qt_Communication_Tester/qt_communication_t
 		C:/Qt/6.6.3/mingw_64/include/QtNetwork/QNetworkInterface \
 		C:/Qt/6.6.3/mingw_64/include/QtNetwork/qnetworkinterface.h \
 		ui_qt_communication_tester.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qeventloop.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qfuture.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qfutureinterface.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qmutex.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qtsan_impl.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qresultstore.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qfuture_impl.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qthreadpool.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qrunnable.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qexception.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qpromise.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qguiapplication.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qinputmethod.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qguiapplication_platform.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QCheckBox \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QDial \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qdial.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QMenuBar \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qmenu.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QSlider \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QSpinBox \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qspinbox.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.6.3/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QStatusBar \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QTextBrowser \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qtextbrowser.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qtextedit.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.6.3/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.6.3/mingw_64/include/QtWidgets/QWidget \
 		../Qt_Communication_Tester/robot_packet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qt_communication_tester.o ..\Qt_Communication_Tester\qt_communication_tester.cpp
 
