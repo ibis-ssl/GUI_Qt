@@ -477,7 +477,7 @@ void Qt_Communication_Tester::on_startbotton_clicked()
         recUdpSocket = new QUdpSocket(this);
         recUdpSocket->bind(QHostAddress::AnyIPv4 ,50000+orionIP, QUdpSocket::ShareAddress);
 
-        QString address_rec = "224.5.20." +  QString::number(orionIP);
+        QString address_rec = "224.5.20.100";
 
         QList<QNetworkInterface> list = QNetworkInterface::allInterfaces();
         foreach (QNetworkInterface iface, list)
