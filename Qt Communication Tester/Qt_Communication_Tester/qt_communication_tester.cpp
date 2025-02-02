@@ -75,6 +75,7 @@ Qt_Communication_Tester::Qt_Communication_Tester(QWidget *parent)
     ui->show_target_theta->setText("0");
     ui->show_vx->setText("0.500");
     ui->show_vy->setText("0.500");
+    ui->show_ar->setText("5.000");
 
 }
 
@@ -139,7 +140,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     auto [vision_theta_low, vision_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
     auto [LINEAR_VELOCITY_LIMIT_LOW, LINEAR_VELOCITY_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
     auto [ANGULAR_VELOCITY_LIMIT_LOW, ANGULAR_VELOCITY_LIMIT_HIGH] = to_two_byte(10.0, 32.767);
-    auto [ACCELERATION_LIMIT_LOW, ACCELERATION_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
+    auto [ACCELERATION_LIMIT_LOW, ACCELERATION_LIMIT_HIGH] = to_two_byte((float)ui->AR->value()/100.0, 32.767);
     TwoByte latency_time = convertUInt16ToTwoByte(100.0);
     uint8_t LATENCY_TIME_MS_HIGH, LATENCY_TIME_MS_LOW;
     LATENCY_TIME_MS_HIGH=static_cast<uint8_t>(latency_time.high);
@@ -475,9 +476,10 @@ void Qt_Communication_Tester::on_startbotton_clicked()
         is_start=1;
         thread_time.start();
         recUdpSocket = new QUdpSocket(this);
+
         recUdpSocket->bind(QHostAddress::AnyIPv4 ,50000+orionIP, QUdpSocket::ShareAddress);
 
-        QString address_rec = "224.5.20.100";
+        QString address_rec = "224.5.20." +  QString::number(orionIP);
 
         QList<QNetworkInterface> list = QNetworkInterface::allInterfaces();
         foreach (QNetworkInterface iface, list)
@@ -579,4 +581,11 @@ void Qt_Communication_Tester::on_reset_theta_clicked()
 
 }
 
+
+void Qt_Communication_Tester::on_AR_valueChanged(int value)
+{
+    char str[10];
+    sprintf(str,"%.2f",(float)value/100.0);
+    ui->show_ar->setText(str);
+}
 

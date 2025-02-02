@@ -51,6 +51,8 @@ private slots:
 
     void on_reset_theta_clicked();
 
+    void on_AR_valueChanged(int value);
+
 protected:
     bool eventFilter(QObject *object, QEvent *event);
 
