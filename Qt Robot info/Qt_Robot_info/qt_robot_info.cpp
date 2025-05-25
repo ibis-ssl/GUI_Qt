@@ -138,7 +138,8 @@ void Qt_Robot_info::readMsg(QNetworkDatagram datagram){
         if(rx_data.data.voltage[0]>=26.1){robot_voltage_rate[count]=100.0;}
         else if(rx_data.data.voltage[0]<=22){robot_voltage_rate[count]=0.0;}
         else{
-            robot_voltage_rate[count]=100.0/4.1*((float)rx_data.data.voltage[0]-22.0);      }
+            robot_voltage_rate[count]=100.0/4.1*((float)rx_data.data.voltage[0]-22.0);
+        }
 
 
         for(uint8_t i=0;i<5;i++){
