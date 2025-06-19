@@ -166,8 +166,8 @@ public:
         setIP->setObjectName("setIP");
         setIP->setGeometry(QRect(230, 10, 42, 31));
         setIP->setMinimum(100);
-        setIP->setMaximum(255);
-        setIP->setValue(255);
+        setIP->setMaximum(254);
+        setIP->setValue(100);
         kick_power = new QSlider(centralwidget);
         kick_power->setObjectName("kick_power");
         kick_power->setGeometry(QRect(100, 180, 111, 22));

@@ -85,6 +85,7 @@ public:
     QProgressBar *Robot_Voltage;
     QLabel *label_33;
     QLabel *label_36;
+    QTextBrowser *show_temp5_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -303,6 +304,10 @@ public:
         label_36 = new QLabel(centralwidget);
         label_36->setObjectName("label_36");
         label_36->setGeometry(QRect(560, 120, 61, 31));
+        show_temp5_2 = new QTextBrowser(centralwidget);
+        show_temp5_2->setObjectName("show_temp5_2");
+        show_temp5_2->setGeometry(QRect(680, 170, 41, 31));
+        show_temp5_2->setFont(font1);
         Qt_Robot_info->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Robot_info);
         menubar->setObjectName("menubar");
