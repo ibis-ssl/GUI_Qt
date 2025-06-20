@@ -168,10 +168,20 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     header=0x00;
 
 
+    send_packet[0]   = ui->setID_1->value();
+    send_packet[65]  = ui->setID_2->value();
+    send_packet[130] = ui->setID_3->value();
+    send_packet[195] = ui->setID_4->value();
+    send_packet[260] = ui->setID_5->value();
+    send_packet[325] = ui->setID_6->value();
+    send_packet[390] = ui->setID_7->value();
+    send_packet[455] = ui->setID_8->value();
+    send_packet[520] = ui->setID_9->value();
+    send_packet[585] = ui->setID_10->value();
+    send_packet[650] = ui->setID_11->value();
+
 
     for(int i=0; i<11; i++){
-        if(orionIP-100>11){send_packet[0] = orionIP-100;}
-        else{send_packet[65*i] = i;}
         send_packet[65*i+1] = static_cast<uint8_t>(header);
         send_packet[65*i+2] = static_cast<uint8_t>(time_counter);
         send_packet[65*i+3] = static_cast<uint8_t>(vision_x_high);
@@ -594,5 +604,148 @@ void Qt_Communication_Tester::on_AR_valueChanged(int value)
     char str[10];
     sprintf(str,"%.2f",(float)value/100.0);
     ui->show_ar->setText(str);
+}
+
+
+void Qt_Communication_Tester::on_setID_1_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+}
+
+
+void Qt_Communication_Tester::on_setID_2_valueChanged(int arg1)
+{
+
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+}
+
+
+void Qt_Communication_Tester::on_setID_3_valueChanged(int arg1)
+{
+
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+}
+
+
+void Qt_Communication_Tester::on_setID_4_valueChanged(int arg1)
+{
+
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+}
+
+
+void Qt_Communication_Tester::on_setID_5_valueChanged(int arg1)
+{
+
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_6_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_7_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_8_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_9_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_10_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
+}
+
+
+void Qt_Communication_Tester::on_setID_11_valueChanged(int arg1)
+{
+    int ID = arg1;
+    char str[100];
+    sprintf(str,"set to ID %d ",ID);
+    ui->log->append(str);
+    if(is_start==1){
+        on_startbotton_clicked();
+    }
+
 }
 

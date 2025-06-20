@@ -53,6 +53,28 @@ private slots:
 
     void on_AR_valueChanged(int value);
 
+    void on_setID_1_valueChanged(int arg1);
+
+    void on_setID_2_valueChanged(int arg1);
+
+    void on_setID_3_valueChanged(int arg1);
+
+    void on_setID_4_valueChanged(int arg1);
+
+    void on_setID_5_valueChanged(int arg1);
+
+    void on_setID_6_valueChanged(int arg1);
+
+    void on_setID_7_valueChanged(int arg1);
+
+    void on_setID_8_valueChanged(int arg1);
+
+    void on_setID_9_valueChanged(int arg1);
+
+    void on_setID_10_valueChanged(int arg1);
+
+    void on_setID_11_valueChanged(int arg1);
+
 protected:
     bool eventFilter(QObject *object, QEvent *event);
 

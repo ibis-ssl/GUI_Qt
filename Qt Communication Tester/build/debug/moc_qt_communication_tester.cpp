@@ -52,11 +52,22 @@ constexpr auto qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS = QtMocHe
     "on_vx_valueChanged",
     "on_vy_valueChanged",
     "on_reset_theta_clicked",
-    "on_AR_valueChanged"
+    "on_AR_valueChanged",
+    "on_setID_1_valueChanged",
+    "on_setID_2_valueChanged",
+    "on_setID_3_valueChanged",
+    "on_setID_4_valueChanged",
+    "on_setID_5_valueChanged",
+    "on_setID_6_valueChanged",
+    "on_setID_7_valueChanged",
+    "on_setID_8_valueChanged",
+    "on_setID_9_valueChanged",
+    "on_setID_10_valueChanged",
+    "on_setID_11_valueChanged"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t {
-    uint offsetsAndSizes[30];
+    uint offsetsAndSizes[52];
     char stringdata0[24];
     char stringdata1[15];
     char stringdata2[1];
@@ -72,6 +83,17 @@ struct qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t {
     char stringdata12[19];
     char stringdata13[23];
     char stringdata14[19];
+    char stringdata15[24];
+    char stringdata16[24];
+    char stringdata17[24];
+    char stringdata18[24];
+    char stringdata19[24];
+    char stringdata20[24];
+    char stringdata21[24];
+    char stringdata22[24];
+    char stringdata23[24];
+    char stringdata24[25];
+    char stringdata25[25];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -91,7 +113,18 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS
         QT_MOC_LITERAL(194, 18),  // "on_vx_valueChanged"
         QT_MOC_LITERAL(213, 18),  // "on_vy_valueChanged"
         QT_MOC_LITERAL(232, 22),  // "on_reset_theta_clicked"
-        QT_MOC_LITERAL(255, 18)   // "on_AR_valueChanged"
+        QT_MOC_LITERAL(255, 18),  // "on_AR_valueChanged"
+        QT_MOC_LITERAL(274, 23),  // "on_setID_1_valueChanged"
+        QT_MOC_LITERAL(298, 23),  // "on_setID_2_valueChanged"
+        QT_MOC_LITERAL(322, 23),  // "on_setID_3_valueChanged"
+        QT_MOC_LITERAL(346, 23),  // "on_setID_4_valueChanged"
+        QT_MOC_LITERAL(370, 23),  // "on_setID_5_valueChanged"
+        QT_MOC_LITERAL(394, 23),  // "on_setID_6_valueChanged"
+        QT_MOC_LITERAL(418, 23),  // "on_setID_7_valueChanged"
+        QT_MOC_LITERAL(442, 23),  // "on_setID_8_valueChanged"
+        QT_MOC_LITERAL(466, 23),  // "on_setID_9_valueChanged"
+        QT_MOC_LITERAL(490, 24),  // "on_setID_10_valueChanged"
+        QT_MOC_LITERAL(515, 24)   // "on_setID_11_valueChanged"
     },
     "Qt_Communication_Tester",
     "timer_callback",
@@ -107,7 +140,18 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSQt_Communication_TesterENDCLASS
     "on_vx_valueChanged",
     "on_vy_valueChanged",
     "on_reset_theta_clicked",
-    "on_AR_valueChanged"
+    "on_AR_valueChanged",
+    "on_setID_1_valueChanged",
+    "on_setID_2_valueChanged",
+    "on_setID_3_valueChanged",
+    "on_setID_4_valueChanged",
+    "on_setID_5_valueChanged",
+    "on_setID_6_valueChanged",
+    "on_setID_7_valueChanged",
+    "on_setID_8_valueChanged",
+    "on_setID_9_valueChanged",
+    "on_setID_10_valueChanged",
+    "on_setID_11_valueChanged"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -119,7 +163,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSQt_Communication_TesterENDCLASS[
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -127,16 +171,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSQt_Communication_TesterENDCLASS[
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   74,    2, 0x0a,    1 /* Public */,
-       4,    0,   77,    2, 0x08,    3 /* Private */,
-       5,    1,   78,    2, 0x08,    4 /* Private */,
-       7,    1,   81,    2, 0x08,    6 /* Private */,
-       9,    1,   84,    2, 0x08,    8 /* Private */,
-      10,    1,   87,    2, 0x08,   10 /* Private */,
-      11,    1,   90,    2, 0x08,   12 /* Private */,
-      12,    1,   93,    2, 0x08,   14 /* Private */,
-      13,    0,   96,    2, 0x08,   16 /* Private */,
-      14,    1,   97,    2, 0x08,   17 /* Private */,
+       1,    1,  140,    2, 0x0a,    1 /* Public */,
+       4,    0,  143,    2, 0x08,    3 /* Private */,
+       5,    1,  144,    2, 0x08,    4 /* Private */,
+       7,    1,  147,    2, 0x08,    6 /* Private */,
+       9,    1,  150,    2, 0x08,    8 /* Private */,
+      10,    1,  153,    2, 0x08,   10 /* Private */,
+      11,    1,  156,    2, 0x08,   12 /* Private */,
+      12,    1,  159,    2, 0x08,   14 /* Private */,
+      13,    0,  162,    2, 0x08,   16 /* Private */,
+      14,    1,  163,    2, 0x08,   17 /* Private */,
+      15,    1,  166,    2, 0x08,   19 /* Private */,
+      16,    1,  169,    2, 0x08,   21 /* Private */,
+      17,    1,  172,    2, 0x08,   23 /* Private */,
+      18,    1,  175,    2, 0x08,   25 /* Private */,
+      19,    1,  178,    2, 0x08,   27 /* Private */,
+      20,    1,  181,    2, 0x08,   29 /* Private */,
+      21,    1,  184,    2, 0x08,   31 /* Private */,
+      22,    1,  187,    2, 0x08,   33 /* Private */,
+      23,    1,  190,    2, 0x08,   35 /* Private */,
+      24,    1,  193,    2, 0x08,   37 /* Private */,
+      25,    1,  196,    2, 0x08,   39 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -149,6 +204,17 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSQt_Communication_TesterENDCLASS[
     QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    6,
 
        0        // eod
 };
@@ -189,6 +255,39 @@ Q_CONSTINIT const QMetaObject Qt_Communication_Tester::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_AR_valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_1_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_2_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_3_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_4_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_5_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_6_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_7_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_8_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_9_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_10_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_setID_11_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
@@ -210,6 +309,17 @@ void Qt_Communication_Tester::qt_static_metacall(QObject *_o, QMetaObject::Call 
         case 7: _t->on_vy_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 8: _t->on_reset_theta_clicked(); break;
         case 9: _t->on_AR_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->on_setID_1_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_setID_2_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_setID_3_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_setID_4_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->on_setID_5_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 15: _t->on_setID_6_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 16: _t->on_setID_7_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 17: _t->on_setID_8_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 18: _t->on_setID_9_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 19: _t->on_setID_10_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 20: _t->on_setID_11_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -234,13 +344,13 @@ int Qt_Communication_Tester::qt_metacall(QMetaObject::Call _c, int _id, void **_
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 21)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 21;
     }
     return _id;
 }
