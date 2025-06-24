@@ -7,6 +7,7 @@ ai_cmd_t ai_cmd;
 int kick_EN=0;
 int dribble_EN=0;
 uint8_t header=0x00;
+int temp_time;
 
 
 
@@ -229,6 +230,8 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     sendUdpSocket->writeDatagram(send_packet,send_packet.size(),QHostAddress(address), 12345);
     sendUdpSocket->close();
 
+    temp_time=time_counter;
+
 }
 
 
@@ -321,6 +324,10 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
     rx_data.data.ball_detection[1]=rec_data[13];
     rx_data.data.ball_detection[2]=rec_data[14];
     rx_data.data.kick_state=rec_data[15]*10;
+
+    if(temp_time-ring_counter>10){
+        ui->log->append("data lost");
+    }
 
     char str4[6];
     sprintf(str4,"%d",ring_counter);
