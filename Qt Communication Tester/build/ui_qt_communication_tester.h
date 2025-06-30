@@ -134,6 +134,8 @@ public:
     QSpinBox *setID_9;
     QSpinBox *setID_10;
     QSpinBox *setID_11;
+    QTextBrowser *show_diff;
+    QLabel *label_41;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -526,6 +528,12 @@ public:
         setID_11->setMinimum(0);
         setID_11->setMaximum(20);
         setID_11->setValue(10);
+        show_diff = new QTextBrowser(centralwidget);
+        show_diff->setObjectName("show_diff");
+        show_diff->setGeometry(QRect(880, 210, 51, 31));
+        label_41 = new QLabel(centralwidget);
+        label_41->setObjectName("label_41");
+        label_41->setGeometry(QRect(780, 210, 101, 31));
         Qt_Communication_Tester->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Qt_Communication_Tester);
         menubar->setObjectName("menubar");
@@ -592,6 +600,7 @@ public:
         label_32->setText(QCoreApplication::translate("Qt_Communication_Tester", "m/s^2", nullptr));
         label_33->setText(QCoreApplication::translate("Qt_Communication_Tester", "Target  AR", nullptr));
         label_48->setText(QCoreApplication::translate("Qt_Communication_Tester", "Send ID", nullptr));
+        label_41->setText(QCoreApplication::translate("Qt_Communication_Tester", "Sent-Received diff:", nullptr));
     } // retranslateUi
 
 };

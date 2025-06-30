@@ -4,12 +4,13 @@
 Thread_time::Thread_time(QObject *parent):
     QThread(parent)
 {
+
 }
 
 void Thread_time::run(){
     QTimer timer;
     connect(&timer, SIGNAL(timeout()), this, SLOT(timerHit()), Qt::DirectConnection );
-    timer.setInterval(20);
+    timer.setInterval(15);
     timer.start();
     //printf("debug : Thread Starts\n");    fflush(stdout);
     exec();

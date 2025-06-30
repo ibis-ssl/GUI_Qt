@@ -490,6 +490,12 @@ void Qt_Communication_Tester::readMsg(QNetworkDatagram datagram){
 
 
 
+    char str_diff_check[100];
+    sprintf(str_diff_check,"%d",temp_time-ring_counter);
+    ui->show_diff->setText(str_diff_check);
+
+
+
 }
 
 void Qt_Communication_Tester::on_startbotton_clicked()
