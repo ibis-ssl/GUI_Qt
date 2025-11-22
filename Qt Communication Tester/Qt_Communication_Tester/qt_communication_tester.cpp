@@ -136,8 +136,8 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     auto [target_theta_low, target_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
     //auto [vel_surge_low, vel_surge_high] = to_two_byte(ai_cmd.local_target_speed[0], 7.0);
     //auto [vel_sway_low, vel_sway_high] = to_two_byte(ai_cmd.local_target_speed[1], 7.0);
-    auto [vision_x_low, vision_x_high] = to_two_byte(ai_cmd.local_target_speed[0], 32.767);
-    auto [vision_y_low, vision_y_high] = to_two_byte(ai_cmd.local_target_speed[1], 32.767);
+    auto [vision_x_low, vision_x_high] = to_two_byte(sqrt(ai_cmd.local_target_speed[0]*ai_cmd.local_target_speed[0]+ai_cmd.local_target_speed[1]*ai_cmd.local_target_speed[1]), 32.767);
+    auto [vision_y_low, vision_y_high] = to_two_byte(atan2(ai_cmd.local_target_speed[1],ai_cmd.local_target_speed[0]), 32.767);
     auto [vision_theta_low, vision_theta_high] = to_two_byte(ai_cmd.target_theta, M_PI);
     auto [LINEAR_VELOCITY_LIMIT_LOW, LINEAR_VELOCITY_LIMIT_HIGH] = to_two_byte(5.0, 32.767);
     auto [ANGULAR_VELOCITY_LIMIT_LOW, ANGULAR_VELOCITY_LIMIT_HIGH] = to_two_byte(10.0, 32.767);
@@ -156,8 +156,9 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
 
     orionIP = ui->setIP->value();
     char str[100];
-    sprintf(str,"ID=%d check=%3d Vx=%.3f Vy=%.3f theta=%.3f kick=%.2f chip=%d Dri=%.2f local_flags =%d",
-            orionIP-100, time_counter,ai_cmd.local_target_speed[0],ai_cmd.local_target_speed[1],ai_cmd.target_theta,
+    sprintf(str,"ID=%d check=%3d r=%.3f Θ=%.3f theta=%.3f kick=%.2f chip=%d Dri=%.2f local_flags =%d",
+            orionIP-100, time_counter,sqrt(ai_cmd.local_target_speed[0]*ai_cmd.local_target_speed[0]+ai_cmd.local_target_speed[1]*ai_cmd.local_target_speed[1]),
+            atan2(ai_cmd.local_target_speed[1],ai_cmd.local_target_speed[0]),ai_cmd.target_theta,
             ai_cmd.kick_power,ai_cmd.chip_en,ai_cmd.drible_power,(uint8_t)flags);
     ui->setdata->setText(str);
 
