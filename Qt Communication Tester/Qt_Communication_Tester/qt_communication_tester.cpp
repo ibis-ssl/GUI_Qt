@@ -151,7 +151,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH=static_cast<uint8_t>(elapsed_time.high);
     ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW =static_cast<uint8_t>(elapsed_time.low);
     uint8_t CONTROL_MODE;
-    CONTROL_MODE=SIMPLE_VELOCITY_TARGET_MODE;
+    CONTROL_MODE = POLAR_VELOCITY_TARGET_MODE;
     //CONTROL_MODE_ARGS=mode_args.simple_velocity;
 
     orionIP = ui->setIP->value();
