@@ -118,14 +118,10 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
         ai_cmd.drible_power= 0;
     }
 
-
     uint8_t flags = 0x00;
     flags |= (ui->VisionOK->isChecked() << IS_VISION_AVAILABLE);
     flags |= (ui->chipEN->isChecked() << ENABLE_CHIP);
-    flags |= (ui->LIFT_DRIBBLER->isChecked() << LIFT_DRIBBLER);
     flags |= (ui->STOP_EMERGENCY->isChecked() << STOP_EMERGENCY);
-    flags |= (ui->PRIORITIZE_MOVE->isChecked() << PRIORITIZE_MOVE);
-    flags |= (ui->PRIORITIZE_ACCURATE_ACCELERATION->isChecked() << PRIORITIZE_ACCURATE_ACCELERATION);
     uint8_t FLAGS;
     FLAGS = flags;
 
@@ -151,7 +147,7 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH=static_cast<uint8_t>(elapsed_time.high);
     ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW =static_cast<uint8_t>(elapsed_time.low);
     uint8_t CONTROL_MODE;
-    CONTROL_MODE=SIMPLE_VELOCITY_TARGET_MODE;
+    CONTROL_MODE=POLAR_VELOCITY_TARGET_MODE;
     //CONTROL_MODE_ARGS=mode_args.simple_velocity;
 
     orionIP = ui->setIP->value();
