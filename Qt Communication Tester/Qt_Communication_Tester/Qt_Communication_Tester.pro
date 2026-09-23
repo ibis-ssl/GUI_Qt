@@ -1,8 +1,4 @@
-QT       += core gui
-QT       += network
-QT += gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui network widgets
 
 CONFIG += c++17
 
@@ -28,6 +24,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES +=
 
 RC_ICONS = ibis.ico

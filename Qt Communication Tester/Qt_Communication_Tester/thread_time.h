@@ -5,6 +5,9 @@
 #include <QObject>
 #include <QTimer>
 
+// time_counter は 0 ～ TIME_COUNTER_PERIOD-1 を周回する
+#define TIME_COUNTER_PERIOD 201
+
 class Thread_time : public QThread
 {
     Q_OBJECT
@@ -15,10 +18,11 @@ public:
 signals:
     void data_update(int time_counter);
 
-public slots:
-
 private slots:
     void timerHit();
+
+private:
+    int time_counter = 0;
 };
 
 #endif // THREAD_TIME_H

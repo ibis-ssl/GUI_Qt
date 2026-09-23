@@ -143,7 +143,10 @@ enum FlagAddress
 {
     IS_VISION_AVAILABLE = 0,
     ENABLE_CHIP = 1,
+    LIFT_DRIBBLER = 2,
     STOP_EMERGENCY = 3,
+    PRIORITIZE_MOVE = 4,
+    PRIORITIZE_ACCURATE_ACCELERATION = 5,
 };
 
 inline void RobotCommandSerializedV2_serialize(RobotCommandSerializedV2 *serialized, const RobotCommandV2 *command)
