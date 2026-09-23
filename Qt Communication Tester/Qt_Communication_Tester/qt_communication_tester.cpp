@@ -166,50 +166,36 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
     header=0x00;
 
 
-    send_packet[0]   = ui->setID_1->value();
-    send_packet[65]  = ui->setID_2->value();
-    send_packet[130] = ui->setID_3->value();
-    send_packet[195] = ui->setID_4->value();
-    send_packet[260] = ui->setID_5->value();
-    send_packet[325] = ui->setID_6->value();
-    send_packet[390] = ui->setID_7->value();
-    send_packet[455] = ui->setID_8->value();
-    send_packet[520] = ui->setID_9->value();
-    send_packet[585] = ui->setID_10->value();
-    send_packet[650] = ui->setID_11->value();
+    send_packet[0] = orionIP-100;
+    send_packet[1] = static_cast<uint8_t>(header);
+    send_packet[2] = static_cast<uint8_t>(time_counter);
+    send_packet[3] = static_cast<uint8_t>(vision_x_high);
+    send_packet[4] = static_cast<uint8_t>(vision_x_low);
+    send_packet[5] = static_cast<uint8_t>(vision_y_high);
+    send_packet[6] = static_cast<uint8_t>(vision_y_low);
+    send_packet[7] = static_cast<uint8_t>(vision_theta_high);
+    send_packet[8] = static_cast<uint8_t>(vision_theta_low);
+    send_packet[9] = static_cast<uint8_t>(target_theta_high);
+    send_packet[10] = static_cast<uint8_t>(target_theta_low);
+    send_packet[11] = static_cast<uint8_t>(ai_cmd.kick_power);
+    send_packet[12] = static_cast<uint8_t>(ai_cmd.drible_power);
+    send_packet[13] = static_cast<uint8_t>(ACCELERATION_LIMIT_HIGH);
+    send_packet[14] = static_cast<uint8_t>(ACCELERATION_LIMIT_LOW);
+    send_packet[15] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_HIGH);
+    send_packet[16] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_LOW);
+    send_packet[17] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_HIGH);
+    send_packet[18] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_LOW);
+    send_packet[19] = static_cast<uint8_t>(LATENCY_TIME_MS_HIGH);
+    send_packet[20] = static_cast<uint8_t>(LATENCY_TIME_MS_LOW);
+    send_packet[21] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH);
+    send_packet[22] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW);
+    send_packet[23] = static_cast<uint8_t>(FLAGS);
+    send_packet[24] = static_cast<uint8_t>(CONTROL_MODE);
+    send_packet[25] = static_cast<uint8_t>(vision_x_high);
+    send_packet[26] = static_cast<uint8_t>(vision_x_low);
+    send_packet[27] = static_cast<uint8_t>(vision_y_high);
+    send_packet[28] = static_cast<uint8_t>(vision_y_low);
 
-
-    for(int i=0; i<11; i++){
-        send_packet[65*i+1] = static_cast<uint8_t>(header);
-        send_packet[65*i+2] = static_cast<uint8_t>(time_counter);
-        send_packet[65*i+3] = static_cast<uint8_t>(vision_x_high);
-        send_packet[65*i+4] = static_cast<uint8_t>(vision_x_low);
-        send_packet[65*i+5] = static_cast<uint8_t>(vision_y_high);
-        send_packet[65*i+6] = static_cast<uint8_t>(vision_y_low);
-        send_packet[65*i+7] = static_cast<uint8_t>(vision_theta_high);
-        send_packet[65*i+8] = static_cast<uint8_t>(vision_theta_low);
-        send_packet[65*i+9] = static_cast<uint8_t>(target_theta_high);
-        send_packet[65*i+10] = static_cast<uint8_t>(target_theta_low);
-        send_packet[65*i+11] = static_cast<uint8_t>(ai_cmd.kick_power);
-        send_packet[65*i+12] = static_cast<uint8_t>(ai_cmd.drible_power);
-        send_packet[65*i+13] = static_cast<uint8_t>(ACCELERATION_LIMIT_HIGH);
-        send_packet[65*i+14] = static_cast<uint8_t>(ACCELERATION_LIMIT_LOW);
-        send_packet[65*i+15] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_HIGH);
-        send_packet[65*i+16] = static_cast<uint8_t>(LINEAR_VELOCITY_LIMIT_LOW);
-        send_packet[65*i+17] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_HIGH);
-        send_packet[65*i+18] = static_cast<uint8_t>(ANGULAR_VELOCITY_LIMIT_LOW);
-        send_packet[65*i+19] = static_cast<uint8_t>(LATENCY_TIME_MS_HIGH);
-        send_packet[65*i+20] = static_cast<uint8_t>(LATENCY_TIME_MS_LOW);
-        send_packet[65*i+21] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_HIGH);
-        send_packet[65*i+22] = static_cast<uint8_t>(ELAPSED_TIME_MS_SINCE_LAST_VISION_LOW);
-        send_packet[65*i+23] = static_cast<uint8_t>(FLAGS);
-        send_packet[65*i+24] = static_cast<uint8_t>(CONTROL_MODE);
-        send_packet[65*i+25] = static_cast<uint8_t>(vision_x_high);
-        send_packet[65*i+26] = static_cast<uint8_t>(vision_x_low);
-        send_packet[65*i+27] = static_cast<uint8_t>(vision_y_high);
-        send_packet[65*i+28] = static_cast<uint8_t>(vision_y_low);
-
-    }
 
 
 
@@ -220,7 +206,8 @@ void Qt_Communication_Tester::timer_callback(int time_counter){
             ,(uint8_t)send_packet[14],(uint8_t)send_packet[15],(uint8_t)send_packet[16],(uint8_t)send_packet[17],(uint8_t)send_packet[18],(uint8_t)send_packet[19]
             ,(uint8_t)send_packet[20],(uint8_t)send_packet[21],(uint8_t)send_packet[22],(uint8_t)send_packet[23],(uint8_t)send_packet[24],(uint8_t)send_packet[25]);
     ui->sendingdata->setText(str2);
-    QString address = "192.168.20.255";
+
+    QString address = "192.168.20." +  QString::number(orionIP);
 
     sendUdpSocket = new QUdpSocket(this);
     sendUdpSocket->bind(QHostAddress(address), 12345);
@@ -617,145 +604,4 @@ void Qt_Communication_Tester::on_AR_valueChanged(int value)
 }
 
 
-void Qt_Communication_Tester::on_setID_1_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-}
-
-
-void Qt_Communication_Tester::on_setID_2_valueChanged(int arg1)
-{
-
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-}
-
-
-void Qt_Communication_Tester::on_setID_3_valueChanged(int arg1)
-{
-
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-}
-
-
-void Qt_Communication_Tester::on_setID_4_valueChanged(int arg1)
-{
-
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-}
-
-
-void Qt_Communication_Tester::on_setID_5_valueChanged(int arg1)
-{
-
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_6_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_7_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_8_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_9_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_10_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
-
-
-void Qt_Communication_Tester::on_setID_11_valueChanged(int arg1)
-{
-    int ID = arg1;
-    char str[100];
-    sprintf(str,"set to ID %d ",ID);
-    ui->log->append(str);
-    if(is_start==1){
-        on_startbotton_clicked();
-    }
-
-}
 
